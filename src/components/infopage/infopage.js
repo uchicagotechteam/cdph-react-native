@@ -13,23 +13,22 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class infopage extends Component<Props> {
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to the info page!</Text>
-                <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <Text style={styles.instructions}>{instructions}</Text>
+            <View style={info_styles.container}>
+                <Text style={info_styles.header}>Health Insurance Portability and Accountability Act</Text>
+                <Text style={info_styles.instructions}>{instructions}</Text>
             </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
+const info_styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'left',
+        alignItems: 'left',
         backgroundColor: '#F5FCFF',
     },
     welcome: {
@@ -42,4 +41,10 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 5,
     },
+    header: {
+        textAlign: 'left',
+        fontSize: 40,
+
+
+    }
 });
