@@ -22,5 +22,3 @@ Run the app in an iOS simulator with
 If you get a bundle error, do
 `react-native upgrade` and opt to keep your current .gitignore but replace the xproj
 
-
-#### Contributors: Jiaqi Gao, Adela Deng, Alex Zhao, Archie Brohn, Jose Arreluce, Melanie Chow, Sara Zhou, Yves Shum.
