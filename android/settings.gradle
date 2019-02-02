@@ -1,0 +1,3 @@
+rootProject.name = 'cdph'
+
+include ':app'
