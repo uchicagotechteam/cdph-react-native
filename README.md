@@ -1,4 +1,4 @@
-# MedAlert
+# CDPH Reporting App
 > A Health Reporting App for the Chicago Department of Public Health (CDPH).
 
 ### Prerequisites
