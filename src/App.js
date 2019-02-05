@@ -1,16 +1,23 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
-import Home from './components/home.js';
+import Home from './components/pages/home.js';
 
+var jsonData = require('./assets/data.json');
 
-
-type Props = {};
 export default class App extends Component<Props> {
-  render() {
-    return (
-      <Home/>
-    );
-  }
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoading: true
+        }
+    }
+
+    render() {
+        return (
+            <Home loaded={jsonData.data} />
+        );
+    }
+
 }
 

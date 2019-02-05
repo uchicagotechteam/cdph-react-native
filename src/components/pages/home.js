@@ -1,7 +1,12 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
-export default class Contents extends React.Component {
+
+export default class Home extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -11,6 +16,7 @@ export default class Contents extends React.Component {
         );
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -30,3 +36,4 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
+
