@@ -1,6 +1,8 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
+import BottomNav from '../functions/bottom-nav.js';
+
 
 export default class Home extends React.Component {
     constructor(props){
@@ -12,6 +14,7 @@ export default class Home extends React.Component {
             <View style={styles.container}>
                 {this.props.loaded ? <Text style={styles.welcome}>Welcome to React Native!</Text> : null}
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
+                <BottomNav style={styles.bottom}/>
             </View>
         );
     }
@@ -34,6 +37,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
+    },
+    bottom: {
+        flex: 1,
+        justifyContent: 'space-around',
+        alignContent: 'flex-end',
+        alignItems: 'center',
     },
 });
 
