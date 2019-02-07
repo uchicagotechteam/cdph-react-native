@@ -1,17 +1,34 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import DropButton from '../functions/drop-down';
 
 
 export default class Home extends React.Component {
     constructor(props){
         super(props);
+        faq = [
+            {
+                heading: "About MedReport",
+                info: "This is an app to help healthcare providers determine which diseases they are mandated to report and how to report them!",
+                open: false
+            },
+            {
+                heading: "How does HIPAA apply?",
+                info: "placeholder text wow the quick brown fox and stuff haha crazy",
+                open: false
+            },
+            {
+                heading: "Any questions?",
+                info: "placeholder text wow the quick brown fox and stuff haha crazy",
+                open: false
+            }
+        ];
     }
-
     render(){
         return (
             <View style={styles.container}>
-                {this.props.loaded ? <Text style={styles.welcome}>Welcome to React Native!</Text> : null}
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
+                <DropButton data={this.faq}/>
             </View>
         );
     }
