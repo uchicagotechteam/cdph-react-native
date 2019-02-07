@@ -1,6 +1,6 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import CallButton from '../functions/button.js';
 
 export default class Home extends React.Component {
     constructor(props){
@@ -11,7 +11,8 @@ export default class Home extends React.Component {
         return (
             <View style={styles.container}>
                 {this.props.loaded ? <Text style={styles.welcome}>Welcome to React Native!</Text> : null}
-                <Text style={styles.instructions}>To get started, edit App.js</Text>
+                <Text style={styles.instructions}>&#128222; To get started, edit App.js</Text>
+                <CallButton data={this.props.loaded}/>
             </View>
         );
     }
