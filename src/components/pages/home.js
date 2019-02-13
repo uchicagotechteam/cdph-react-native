@@ -11,10 +11,13 @@ export default class Home extends React.Component {
 
     render(){
         return (
-            <View style={styles.container}>
+            /*<View style={styles.container}>
                 {this.props.loaded ? <Text style={styles.welcome}>Welcome to React Native!</Text> : null}
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <BottomNav style={styles.bottom}/>
+                <BottomNav />
+            </View>*/
+            <View style={{ flex: 1, backgroundColor: 'white' , justifyContent: 'flex-end'}}>
+                <BottomNav />
             </View>
         );
     }
@@ -40,9 +43,8 @@ const styles = StyleSheet.create({
     },
     bottom: {
         flex: 1,
-        justifyContent: 'space-around',
-        alignContent: 'flex-end',
-        alignItems: 'center',
+        justifyContent: 'flex-end',
+        backgroundColor: 'white'
     },
 });
 

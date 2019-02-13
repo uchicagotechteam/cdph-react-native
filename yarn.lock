@@ -647,6 +647,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@mdi/react@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mdi/react/-/react-1.1.0.tgz#22b014e40152adbe0d7d36631fc9979854603c7a"
+  integrity sha512-c0+avMYEZ6i7Pg1ULLFs+p7k8bDPiie9rrgGYs8VWQhw2tUUYz7r0lIPVzD3bzMghWfyhfkArj88K5Of0WTMNw==
+
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
@@ -3534,6 +3539,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+material-design-icons@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
+  integrity sha1-mnHEh0chjrylHlGmbaaCA4zct78=
+
 math-random@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.4.tgz#5dd6943c938548267016d4e34f057583080c514c"
@@ -4507,6 +4517,14 @@ prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@latest:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
+prop-types@^15.6.1:
+  version "15.7.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.1.tgz#2fa61e0a699d428b40320127733ee2931f05d9d1"
+  integrity sha512-f8Lku2z9kERjOCcnDOPm68EBJAO2K00Q5mSgPAUE/gJuBgsYLbVy6owSrtcHj90zt8PvW+z0qaIIgsIhHOa1Qw==
+  dependencies:
+    object-assign "^4.1.1"
+    react-is "^16.8.1"
+
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
@@ -4578,6 +4596,18 @@ react-is@^16.6.3:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.7.0.tgz#c1bd21c64f1f1364c6f70695ec02d69392f41bfa"
   integrity sha512-Z0VRQdF4NPDoI0tsXVMLkJLiwEBa+RP66g0xDHxgxysxSoCUccSten4RTF/UFvZF1dZvZ9Zu1sx+MDXwcOR34g==
+
+react-is@^16.8.1:
+  version "16.8.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.1.tgz#a80141e246eb894824fb4f2901c0c50ef31d4cdb"
+  integrity sha512-ioMCzVDWvCvKD8eeT+iukyWrBGrA3DiFYkXfBsVYIRdaREZuBjENG+KjrikavCLasozqRWTwFUagU/O4vPpRMA==
+
+react-native-material-bottom-navigation@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-material-bottom-navigation/-/react-native-material-bottom-navigation-1.0.2.tgz#5b785887dc20c864c4be1a50f330831c0214094d"
+  integrity sha512-xPI9EUqBlYC1U970tZ0eX0VP7mmiZYYemnn2JWmj2xDqzdrdjEZF50woLZdRb2SnzCwC7tUb1MfSaV1T52GP8w==
+  dependencies:
+    prop-types "^15.6.1"
 
 react-native-material-design-styles@^0.2.6:
   version "0.2.7"
