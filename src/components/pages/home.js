@@ -6,6 +6,9 @@ import DropButton from '../functions/drop-down';
 export default class Home extends React.Component {
     constructor(props){
         super(props);
+        
+    }
+    render(){
         faq = [
             {
                 heading: "About MedReport",
@@ -23,12 +26,12 @@ export default class Home extends React.Component {
                 open: false
             }
         ];
-    }
-    render(){
         return (
             <View style={styles.container}>
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <DropButton data={this.faq}/>
+                <DropButton heading={faq[0]["heading"]} info={faq[0]["info"]} open={false}/>
+                <DropButton heading={faq[1]["heading"]} info={faq[1]["info"]} open={false}/>
+                <DropButton heading={faq[2]["heading"]} info={faq[2]["info"]} open={false}/>
             </View>
         );
     }

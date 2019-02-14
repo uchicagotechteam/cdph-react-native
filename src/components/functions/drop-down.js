@@ -1,5 +1,6 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 /* Props looks like this:
  * {header: string, info: string, open: boolean}
@@ -7,44 +8,48 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 
 export default class DropButton extends React.Component {
     constructor(props) {
-      super(props);
-      
+        super(props);
+        this.state = { open: this.props.open }
     }
+
+    //Toggle open
+    dropToggle = () => {
+        this.setState({
+            open: !this.state.open
+          })
+    }
+
     render() {
-        if (this.props){
-            /*
-            var faq = (this.props).map(function (obj) {
-                //data to hold what we are presenting at the moment
-                //var data = "";
-                //button is open
-                if (obj.open) { 
-                    return (
-                        <button> 
-                            <text>
-                            <b> {obj.header} </b> {"\n"}
-                            {obj.info}
-                            </text>
-                        </button>
-                    );
-                } 
-                else {
-                    return (
-                        <button> 
-                            <text>
-                            <b> {obj.header} </b>
-                            </text>
-                        </button>
-                    ); 
-                }
-            });
-            */
-            var len = this.props.length;
-           
-            return (
-                <Text>
-                    Hello
-                </Text>
-            );
-        }
+        return (
+            <TouchableOpacity 
+            style={styles.button}
+            onPress={this.dropToggle}>
+                <Text style={styles.buttonTitle}> {this.props.heading} </Text>
+                <Text style={styles.buttonInfo}> {this.state.open ? this.props.info : ""} </Text>
+            </TouchableOpacity>
+        )
     }
 }
+
+const styles = StyleSheet.create({
+    button: {
+        color: '#ffffff',
+        backgroundColor: '#002f86',
+        marginBottom: 10,
+        padding: 5,
+        width: '85%'
+    },
+    buttonInfo: {
+        color: '#ffffff',
+        padding: 5,
+        width: '85%'
+    },
+    buttonTitle: {
+        color: '#ffffff',
+        padding: 5,
+        width: '85%',
+        fontWeight: 'bold',
+    }
+
+  })
+  
