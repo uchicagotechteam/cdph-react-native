@@ -1,8 +1,8 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import {Linking} from 'react-native'
-import { Icon } from 'react-native-vector-icons/FontAwesome';
+import {Icon} from 'react-native-vector-icons/FontAwesome';
 
 
 export default class CallButton extends React.Component {
