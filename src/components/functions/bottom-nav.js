@@ -28,7 +28,7 @@ export default class BottomNav extends BottomNavigation{
 
             </BottomNavigation>
     )
-    }
+    }o
 }
 
 /*import BottomNavigation, {FullTab, FullTabProps as renderIcon} from 'react-native-material-bottom-navigation'
