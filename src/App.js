@@ -4,7 +4,6 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import Home from './components/pages/home.js';
 
 var jsonData = require('./assets/data.json');
-
 export default class App extends Component<Props> {
     constructor(props){
         super(props);
@@ -15,7 +14,8 @@ export default class App extends Component<Props> {
 
     render() {
         return (
-            <Home loaded={jsonData.data} />
+            <Home data={jsonData.diseases} />
+
         );
     }
 
