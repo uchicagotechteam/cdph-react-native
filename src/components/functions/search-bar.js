@@ -22,7 +22,7 @@ export default class Search extends React.Component{
                 placeholder="Search for diseases to report"
                 onChangeText={this.updateSearch}
                 value={search}
-                containerStyle={styles.container()}
+                containerStyle={styles.container}
                 inputStyle={styles.input}
             />
 
@@ -33,14 +33,14 @@ export default class Search extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
-       backgroundColor: '#FAFAFA',
-       borderRadius: 8,
-       borderWidth: 1,
-       marginLeft: '11.7%',
-       marginRight: '11.7%'
+        backgroundColor: '#FAFAFA',
+        borderRadius: 8,
+        borderWidth: 1,
+        width: 300,
+        marginLeft: '11.7%',
+        marginRight: '11.7%'
     },
     input: {
-        backgroundColor: '#FAFAFA',
         fontSize: 12,
         color: '#c4c4c4'
     }
