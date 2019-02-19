@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-
-
+import SimpleLineIcons from 'react-native-vector-icons/MaterialIcons';
 import Home from './components/pages/home.js';
 import List from './components/pages/list.js';
 import {BottomNavigation} from "react-native-material-ui";
+import { COLOR, ThemeProvider } from "react-native-material-ui";
 
 var jsonData = require('./assets/data.json');
 
@@ -14,38 +13,42 @@ export default class App extends Component<Props> {
         super(props);
         this.state = {
             isLoading: true,
-            display: 'home'
+            active: 'home',
         }
     }
 
     render() {
         const display = this.state.display;
         let show;
-        if (display == 'home') {
+        if (this.state.active == 'home') {
             show = <Home/>
         }
-        else if (display == 'list'){
+        else if (this.state.active == 'list'){
             show = <List/>
         }
         return (
             <View style = {styles.container}>
                 {show}
-                <BottomNavigation style = {styles.bottom}>
+
+                <BottomNavigation >
                     <BottomNavigation.Action
                         key="home"
-                        icon="home"
+                        iconSet = "SimpleLineIcons"
+                        icon= {<SimpleLineIcons name = "home" size = {25} color = "red"/>}
                         label="Home"
-                        onPress={() => this.setState({ display: 'home' })}
+                        onPress={() => this.setState({ active: 'home' })}
+
                     />
 
                     <BottomNavigation.Action
                         key="list"
-                        icon="list"
+                        icon={<SimpleLineIcons name = "list" size = {25} />}
                         label="List"
-                        onPress={() => this.setState({ display: 'list' })}
+                        onPress={() => this.setState({ active: 'list' })}
                     />
 
                 </BottomNavigation>
+
             </View>
         );
     }
@@ -55,8 +58,7 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        //alignItems: 'center',
+        flexDirection: 'column',
         backgroundColor: '#F5FCFF',
     },
     welcome: {
@@ -68,10 +70,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
-    },
-    bottom: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        backgroundColor: 'white'
     },
 });
