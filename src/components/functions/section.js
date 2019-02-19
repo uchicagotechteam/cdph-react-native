@@ -2,9 +2,30 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import TopBarNav from 'top-bar-nav';
 
-const Scene = ({ index }) => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-<Text style={{ fontSize: 50 }}>{index}</Text>
+var jsonData = require('../../assets/data.json');
+var stringData=JSON.stringify(jsonData.diseases);
+
+var allItems = [];
+var items = [jsonData.diseases.length];
+
+for(var i=0; i<jsonData.diseases.length; i++){
+    allItems.push[i]=jsonData.diseases[i];
+}
+var string=JSON.stringify(allItems);
+/*allItems = Object.keys(jsonData.diseases);
+let includeAltNames = [];
+for (var i=0; i<allItems.length; i++){
+    let disease = [];
+    for (var j=0; j<jsonData.diseases[allItems[i]]["alt_names"].length; j++){
+        disease.push(jsonData.diseases[allItems[i]]["alt_names"][j]);
+    }
+    includeAltNames.push(disease);
+}
+items = allItems.sort();*/
+
+const Scene = ({ }) => (
+    <View style={{ flex: 1}}>
+<Text style={{ fontSize: 10 }}>{string}</Text>
 </View>
 );
 
@@ -26,10 +47,10 @@ export default class TopNav extends React.Component {
     <TopBarNav
         // routeStack and renderScene are required props
         routeStack={ROUTESTACK}
-        renderScene={(route, i) => {
+        renderScene={(route) => {
             // This is a lot like the now deprecated Navigator component
             let Component = ROUTES[route.title];
-            return <Component index={i+1} />;
+            return <Component />;
         }}
         // Below are optional props
         headerStyle={[styles.headerStyle, { paddingTop: 100 }]} // probably want to add paddingTop if using TopBarNav for the  entire height of screen to account for notches/status bars
