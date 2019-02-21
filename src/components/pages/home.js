@@ -1,7 +1,8 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 
 import BottomNav from '../functions/bottom-nav.js';
+import TopNav from '../functions/section.js';
 
 
 export default class Home extends React.Component {
@@ -11,13 +12,8 @@ export default class Home extends React.Component {
 
     render(){
         return (
-            /*<View style={styles.container}>
-                {this.props.loaded ? <Text style={styles.welcome}>Welcome to React Native!</Text> : null}
-                <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <BottomNav />
-            </View>*/
-            <View style={{ flex: 1, backgroundColor: 'white' , justifyContent: 'flex-end'}}>
-                <BottomNav />
+            <View style={{flex:1}}>
+                <Image source={require('../../assets/NEWmedreportbackground.png')}/>
             </View>
         );
     }
