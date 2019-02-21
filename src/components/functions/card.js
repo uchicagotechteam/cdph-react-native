@@ -5,7 +5,7 @@ USAGE: <Card text = {"card text here"} urgency = {integer here}/>
 Important: 2 variables are necessary: text,  urgency
 
 Note: If text string is too long, it will continue onto the next line
-Note: There is a margin above and below the text
+Note: There is a margin above the component, but not below. 
 
  */
 
@@ -13,15 +13,6 @@ import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
 export default class Card extends React.Component{
-    /*constructor(props) {
-        super(props)
-        this.state = {
-            headingText: this.props.heading,
-            subheadingText: this.props.subheading,
-        };
-    }
-    */
-
     render() {
         return(
             <View style = {[cardStyles.generalbox, chooseStyle(this.props.urgency)]}>
