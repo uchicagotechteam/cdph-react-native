@@ -1,5 +1,8 @@
 /*
 USAGE: <Heading heading = {"Heading text here"} subheading = {"subtext here"} urgency = {integer here}/>
+                            String                             String                     Int
+
+Important: 3 variables are necessary: heading, subheading, urgency
 
 Note: If heading string is too long, it will continue onto the next line
 Note: There is an upper margin of 33 (keep this in mind when fixing this component
