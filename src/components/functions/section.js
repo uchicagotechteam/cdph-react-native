@@ -2,46 +2,45 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import TopBarNav from 'top-bar-nav';
 
-var jsonData = require('../../assets/data.json');
-var stringData=JSON.stringify(jsonData.diseases);
-
-var allItems = [];
-var items = [jsonData.diseases.length];
-
-for(var i=0; i<jsonData.diseases.length; i++){
-    allItems.push[i]=jsonData.diseases[i];
-}
-var string=JSON.stringify(allItems);
-/*allItems = Object.keys(jsonData.diseases);
-let includeAltNames = [];
-for (var i=0; i<allItems.length; i++){
-    let disease = [];
-    for (var j=0; j<jsonData.diseases[allItems[i]]["alt_names"].length; j++){
-        disease.push(jsonData.diseases[allItems[i]]["alt_names"][j]);
-    }
-    includeAltNames.push(disease);
-}
-items = allItems.sort();*/
-
-const Scene = ({ }) => (
+const Scene1 = ({ }) => (
     <View style={{ flex: 1}}>
-<Text style={{ fontSize: 10 }}>{string}</Text>
+<Text style={{ fontSize: 10 }}>This is screen 1</Text>
+</View>
+);
+
+const Scene2 = ({ }) => (
+    <View style={{ flex: 1}}>
+<Text style={{ fontSize: 12 }}>This is screen 2</Text>
+</View>
+);
+
+const Scene3 = ({ }) => (
+    <View style={{ flex: 1}}>
+<Text style={{ fontSize: 15 }}>This is screen 3</Text>
 </View>
 );
 
 const ROUTES = {
-    Scene
+    Scene1,
+    Scene2,
+    Scene3
     // ideally you would have a ROUTES object with multiple React component scenes
 };
 
 // There are three types of labels (image, text, and element)
 const ROUTESTACK = [
-    { text: 'IMMEDIATE', title: 'Scene' }, // title is just the name of the Component being rendered.  See the renderScene property below
-    { text: '24 HOURS', title: 'Scene' },
-    { text: '7 DAYS', title: 'Scene' }
+    { text: 'IMMEDIATE', title: 'Scene1' }, // title is just the name of the Component being rendered.  See the renderScene property below
+    { text: '24 HOURS', title: 'Scene2' },
+    { text: '7 DAYS', title: 'Scene3' }
 ];
 
 export default class TopNav extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            active: 'home',
+        }
+    }
     render() {
         return (
     <TopBarNav
