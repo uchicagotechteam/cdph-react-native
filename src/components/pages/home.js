@@ -3,6 +3,8 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 
 import Search from '../functions/search-bar';
 
+var jsonData = require('../../assets/data.json');
+
 /*import { COLOR, ThemeContext, getTheme } from 'react-native-material-ui';
 
 const searchBarTheme = {
@@ -28,31 +30,40 @@ const searchBarTheme = {
 export default class Home extends React.Component {
     items: string[];
     allItems: string[];
-    includeAltNames: any[];
+    // includeAltNames: any[];
 
     constructor(props){
         super(props);
+        this.init();
+    }
 
-        var allItems = Object.keys(this.props.data["diseases"]);
-        this.includeAltNames = [];
-        for (var i=0; i<this.allItems.length; i++){
-            var disease = [];
-            for (var j=0; j<this.props.data[this.allItems[i]]["alt_names"].length; j++){
-                disease.push(this.props.data[this.allItems[i]]["alt_names"][j]);
-            }
-        }
+    init(){
+        var diseases = jsonData["diseases"];
+        this.allItems = Object.keys(diseases);  // Contains the names of all the diseases
+
+        // this.includeAltNames = this.allItems; // Contains the names and alternative names of all diseases (for search)
+        // for (var i=0; i<this.allItems.length; i++){
+        //     if (diseases[this.allItems[i]]["alt_names"]){
+        //         for (var j=0; j<diseases[this.allItems[i]]["alt_names"].length; j++){
+        //             this.includeAltNames.push(diseases[this.allItems[i]]["alt_names"][j]);
+        //         }
+        //     }
+        //
+        //
+        // }
         this.items = this.allItems.sort();
         //puts public health hazard on top
         this.items.splice(this.items.indexOf("Any Public Health Hazard"), 1);
         this.items.unshift("Any Public Health Hazard");
     }
 
+
     render(){
         return (
             <View style={styles.container}>
 
-                <Text> testing </Text>
-                <Search diseases={this.props.loaded}/>
+                <Text> {this.allItems[0]} </Text>
+                <Search diseases={this.items}/>
                 <Text> {this.props.loaded} </Text>
             </View>
 
@@ -66,7 +77,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#000000',
+        backgroundColor: 'white',
 
     },
     welcome: {
