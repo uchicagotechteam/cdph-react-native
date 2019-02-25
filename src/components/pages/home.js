@@ -31,7 +31,7 @@ export default class Home extends React.Component {
             }
         ];
         return (
-            <View style={{flex:1}, styles.container}>
+            <View style={styles.container}>
                 <Image source={require('../../assets/NEWmedreportbackground.png')}/>
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
                 <DropButton heading={faq[0]["heading"]} info={faq[0]["info"]} open={false}/>
