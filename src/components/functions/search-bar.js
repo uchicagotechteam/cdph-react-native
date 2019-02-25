@@ -1,7 +1,7 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {SearchBar} from 'react-native-elements';
-
+import {Card} from 'card';
 
 export default class Search extends React.Component{
     display = this.props.diseases;
@@ -35,7 +35,7 @@ export default class Search extends React.Component{
                     inputStyle={styles.input}
                 />
 
-                <Text> {this.display[4]} </Text>
+                <Card text={this.display[4]} />
 
             </View>
 

@@ -66,6 +66,5 @@ const cardStyles = StyleSheet.create({
     },
     cardBox3: {
         borderLeftColor: '#1EB1ED',
-
     },
 })
