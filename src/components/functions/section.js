@@ -1,22 +1,65 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import TopBarNav from 'top-bar-nav';
+import Card from './card.js';
+
+
+var jsonData = require('../../assets/data.json');
+var keys=Object.keys(jsonData.diseases);
+var immediate=[];
+var medium=[];
+var low=[];
+for(var i=0; i<keys.length; i++)
+{
+    if(jsonData.diseases[keys[i]]["urgency"]=="3 hours")
+    {
+        immediate.push(keys[i]);
+    }
+}
+for(var i=0; i<keys.length; i++)
+{
+    if(jsonData.diseases[keys[i]]["urgency"]=="24 hours")
+    {
+        medium.push(keys[i]);
+    }
+}
+for(var i=0; i<keys.length; i++)
+{
+    if(jsonData.diseases[keys[i]]["urgency"]=="7 days")
+    {
+        low.push(keys[i]);
+    }
+}
+
+
+
+
+
+
+
 
 const Scene1 = ({ }) => (
     <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 10 }}>This is screen 1</Text>
+        <Card text={immediate[0]} urgency={1}/>
+        <Card text={immediate[1]} urgency={1}/>
     </View>
+    /*for(var j=0; j<immediate.length; j++)
+    {
+        <View style={{ flex: 1}}>
+            <Card text=immediate[j] urgency=1/>
+        </View>
+    }*/
 );
 
 const Scene2 = ({ }) => (
     <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 12 }}>This is screen 2</Text>
+        <Text style={{ fontSize: 12 }}>{medium}</Text>
     </View>
 );
 
 const Scene3 = ({ }) => (
     <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 15 }}>This is screen 3</Text>
+        <Text style={{ fontSize: 12 }}>{low}</Text>
     </View>
 );
 
@@ -35,12 +78,6 @@ const ROUTESTACK = [
 ];
 
 export default class TopNav extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            active: 'home',
-        }
-    }
     render() {
         return (
             <TopBarNav
