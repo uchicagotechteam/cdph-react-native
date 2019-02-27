@@ -82,8 +82,6 @@ export default class Search extends React.Component{
                     inputContainerStyle={styles.searchContainer}
                 />
 
-                <Text>{search}</Text>
-
                 {this.searching ? this.state.cards : dropDowns }
 
             </View>
