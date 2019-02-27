@@ -57,7 +57,7 @@ const textStyles = StyleSheet.create({
 
     subheadingStyle: {
         marginLeft: 34,
-        fontSize: 18,
+        fontSize: 13,
         fontFamily: 'Arial',
         fontStyle: 'italic',
         color: '#9B9B9B',
