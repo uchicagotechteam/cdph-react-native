@@ -49,6 +49,7 @@ const cardStyles = StyleSheet.create({
     },
 
     generalbox: {
+        width: 300,
         marginTop: 13,
         marginLeft: 34,
         marginRight: 34,
