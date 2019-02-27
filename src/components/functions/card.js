@@ -13,9 +13,22 @@ import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
 export default class Card extends React.Component{
+
+    chooseStyle(urgency) { //selects which style to render based on urgency number input
+        if (urgency == "3 hours") {
+            return cardStyles.cardBox1;
+        }
+        else if (urgency == "24 hours") {
+            return cardStyles.cardBox2;
+        }
+        else {
+            return cardStyles.cardBox3;
+        }
+    }
+
     render() {
         return(
-            <View style = {[cardStyles.generalbox, chooseStyle(this.props.urgency)]}>
+            <View style = {[cardStyles.generalbox, this.chooseStyle(this.props.urgency)]}>
                 <Text style={cardStyles.textStyle}>{this.props.text}</Text>
             </View>
 
@@ -23,29 +36,16 @@ export default class Card extends React.Component{
     }
 }
 
-function chooseStyle(urgencyNumber) { //selects which style to render based on urgency number input
-    if (urgencyNumber == 1) {
-        return cardStyles.cardBox1;
-    }
-    else if (urgencyNumber == 2) {
-        return cardStyles.cardBox2;
-    }
-    else {
-        return cardStyles.cardBox3;
-    }
-}
+
 
 const cardStyles = StyleSheet.create({
-
-
     textStyle: {
         marginLeft: 14,
         marginRight: 14,
         marginBottom: 19,
         marginTop: 19,
         fontSize: 13,
-        fontFamily: 'Arial',
-        fontWeight: 'bold',
+        // fontFamily: 'Gotham Bold'
     },
 
     generalbox: {
@@ -53,9 +53,12 @@ const cardStyles = StyleSheet.create({
         marginLeft: 34,
         marginRight: 34,
         borderLeftWidth: 5,
-        borderTopWidth: 1,
-        borderRightWidth: 1,
-        borderBottomWidth:1,
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
+        elevation: 1
     },
 
     cardBox1: { // Most urgent
