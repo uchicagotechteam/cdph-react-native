@@ -27,13 +27,24 @@ export default class CallButton extends React.Component {
             })
             .catch(err => console.log(err));
     }
+    chooseStyle(urgency) { //selects which style to render based on urgency number input
+        if (urgency == "3 hours") {
+            return styles.button1;
+        }
+        else if (urgency == "24 hours") {
+            return styles.button2;
+        }
+        else {
+            return styles.button3;
+        }
+    }
 
     render(){
         return (
 
             <View style={styles.container}>
                 <TouchableOpacity
-                    style={styles.button}
+                    style={this.chooseStyle(this.props.urgency)}
                     onPress={this.callNumber(this.props.callNumber)}
                 >
                     {/*<Icon*/}
@@ -58,10 +69,40 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center'
     },
-    button: {
+    button1: {
         alignItems: 'center',
         paddingVertical: 16,
-        backgroundColor: '#9ee096',
+        backgroundColor: '#FC0F1B',
+        padding: 10,
+        borderRadius: 40,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
+        elevation: 1,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 10,
+    },
+    button2: {
+        alignItems: 'center',
+        paddingVertical: 16,
+        backgroundColor: '#FDBF2E',
+        padding: 10,
+        borderRadius: 40,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
+        elevation: 1,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 10,
+    },
+    button3: {
+        alignItems: 'center',
+        paddingVertical: 16,
+        backgroundColor: '#1EB1ED',
         padding: 10,
         borderRadius: 40,
         shadowColor: '#000',
