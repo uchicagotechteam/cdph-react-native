@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import TopBarNav from 'top-bar-nav';
 import Card from './card.js';
 
@@ -32,35 +32,40 @@ for(var i=0; i<keys.length; i++)
 }
 
 
+var list1 = immediate.map((disease) =>
+    <Card key={disease.replace(/\s/g, '')}
+            text={disease}
+            urgency="3 hours"/>)
 
+var list2 = medium.map((disease) =>
+    <Card key={disease.replace(/\s/g, '')}
+            text={disease}
+            urgency="24 hours"/>)
 
-
+var list3 = low.map((disease) =>
+    <Card key={disease.replace(/\s/g, '')}
+            text={disease}
+            urgency="7 days"/>)
 
 
 
 const Scene1 = ({ }) => (
-    <View style={{ flex: 1}}>
-        <Card text={immediate[0]} urgency={1}/>
-        <Card text={immediate[1]} urgency={1}/>
-    </View>
-    /*for(var j=0; j<immediate.length; j++)
-    {
-        <View style={{ flex: 1}}>
-            <Card text=immediate[j] urgency=1/>
-        </View>
-    }*/
+    <ScrollView style={{ flex: 1}}>
+        {list1}
+    </ScrollView>
+
 );
 
 const Scene2 = ({ }) => (
-    <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 12 }}>{medium}</Text>
-    </View>
+    <ScrollView style={{ flex: 1}}>
+        {list2}
+    </ScrollView>
 );
 
 const Scene3 = ({ }) => (
-    <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 12 }}>{low}</Text>
-    </View>
+    <ScrollView style={{ flex: 1}}>
+        {list3}
+    </ScrollView>
 );
 
 const ROUTES = {
