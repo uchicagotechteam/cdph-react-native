@@ -31,6 +31,12 @@ for(var i=0; i<keys.length; i++)
     }
 }
 
+immediate.shift()
+immediate.shift()
+immediate=immediate.sort()
+immediate.unshift(keys[0], keys[1])
+medium=medium.sort()
+low=low.sort()
 
 var list1 = immediate.map((disease) =>
     <Card key={disease.replace(/\s/g, '')}
