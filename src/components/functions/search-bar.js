@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import Card from './card';
 import DropButton from './drop-down';
@@ -72,7 +72,7 @@ export default class Search extends React.Component{
                         heading={q["heading"]}
                         info={q["info"]}
                         open={false}
-                        style={styles.dropdown}/>)
+                        />)
 
         const { search } = this.state;
         return (
@@ -87,7 +87,11 @@ export default class Search extends React.Component{
                     inputContainerStyle={styles.searchContainer}
                 />
 
-                {this.searching ? this.state.cards : dropDowns }
+                {this.searching ?
+                    <ScrollView style={{ flex: 1}}>
+                        {this.state.cards}
+                    </ScrollView> :
+                    dropDowns }
             </View>
 
         );
@@ -97,9 +101,7 @@ export default class Search extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flex: 1
     },
     barContainer: {
         backgroundColor: 'white',
@@ -121,8 +123,5 @@ const styles = StyleSheet.create({
     },
     searchContainer: {
         backgroundColor: 'white'
-    },
-    dropdown: {
-        width: 300
     }
 });

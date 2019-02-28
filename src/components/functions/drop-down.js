@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
     button: {
         color: '#ffffff',
         backgroundColor: '#002f86',
-        marginBottom: 10,
+        marginTop: 10,
         padding: 5,
-        width: '85%'
+        width: 300
     },
     buttonInfo: {
         color: '#ffffff',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         padding: 5,
         width: '85%',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     }
 
   })
