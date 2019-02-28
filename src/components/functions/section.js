@@ -1,23 +1,71 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import TopBarNav from 'top-bar-nav';
+import Card from './card.js';
+
+
+var jsonData = require('../../assets/data.json');
+var keys=Object.keys(jsonData.diseases);
+var immediate=[];
+var medium=[];
+var low=[];
+for(var i=0; i<keys.length; i++)
+{
+    if(jsonData.diseases[keys[i]]["urgency"]=="3 hours")
+    {
+        immediate.push(keys[i]);
+    }
+}
+for(var i=0; i<keys.length; i++)
+{
+    if(jsonData.diseases[keys[i]]["urgency"]=="24 hours")
+    {
+        medium.push(keys[i]);
+    }
+}
+for(var i=0; i<keys.length; i++)
+{
+    if(jsonData.diseases[keys[i]]["urgency"]=="7 days")
+    {
+        low.push(keys[i]);
+    }
+}
+
+
+var list1 = immediate.map((disease) =>
+    <Card key={disease.replace(/\s/g, '')}
+            text={disease}
+            urgency="3 hours"/>)
+
+var list2 = medium.map((disease) =>
+    <Card key={disease.replace(/\s/g, '')}
+            text={disease}
+            urgency="24 hours"/>)
+
+var list3 = low.map((disease) =>
+    <Card key={disease.replace(/\s/g, '')}
+            text={disease}
+            urgency="7 days"/>)
+
+
 
 const Scene1 = ({ }) => (
-    <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 10 }}>This is screen 1</Text>
-    </View>
+    <ScrollView style={{ flex: 1}}>
+        {list1}
+    </ScrollView>
+
 );
 
 const Scene2 = ({ }) => (
-    <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 12 }}>This is screen 2</Text>
-    </View>
+    <ScrollView style={{ flex: 1}}>
+        {list2}
+    </ScrollView>
 );
 
 const Scene3 = ({ }) => (
-    <View style={{ flex: 1}}>
-        <Text style={{ fontSize: 15 }}>This is screen 3</Text>
-    </View>
+    <ScrollView style={{ flex: 1}}>
+        {list3}
+    </ScrollView>
 );
 
 const ROUTES = {
@@ -35,12 +83,6 @@ const ROUTESTACK = [
 ];
 
 export default class TopNav extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            active: 'home',
-        }
-    }
     render() {
         return (
             <TopBarNav

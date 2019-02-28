@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native';
 import {Linking} from 'react-native'
 import {Icon} from 'react-native-vector-icons/FontAwesome';
 
-
+//takes in two props, call number and subtitle
 export default class CallButton extends React.Component {
     constructor(props){
         super(props);
