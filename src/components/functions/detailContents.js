@@ -3,6 +3,7 @@ USAGE: <detailContents disease = {"disease name according to JSON"}/>
                                     String
 
 Important: 1 variable are necessary: disease
+do yarn add intersperse
 
 Note: this component searches through the json file and outputs corresponding values from disease names
 
@@ -12,6 +13,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import Heading from '../functions/heading.js';
 import CallButton from '../functions/button.js';
 
+var intersperse = require('intersperse');
 var jsonData = require('../../assets/data.json');
 
 var msg = "Report within ";
@@ -25,22 +27,41 @@ export default class DetailContents extends React.Component{
         };
     }
 
+
     render() {
+        let lineAndSubtitle =  <View style = {styles.line}>
+                        <Text style = {styles.AltName}>Alternate Names:</Text>
+                        <Text style = {styles.alternatenamelist}>{intersperse(this.state.data["alt_names"], ", ")}</Text>
+
+                    </View>
         return (
             <View style={styles.container}>
                 <Heading heading = {this.state.name} subheading = {msg.concat(this.state.data.urgency)} urgency = {checkUrgency(this.state.data.urgency)}/>
                 <Text style = {styles.next}>Next steps: </Text>
-                <Text style = {styles.steps}>1. Gather report info. Include patient’s name, DOB, age, sex, race/ethnicity, address, and telephone number. </Text>
-                <Text style = {styles.steps}>2. Record method of diagnosis, if available</Text>
-                <Text style = {styles.steps}>3. Submit isolate or clinical materials to IDPH Lab
-                                             W. Taylor St., Chicago, IL, 60612, 312-793-1322).</Text>
-                <CallButton callNumber = {"2021232132"} subtitle = {"If unavailable, call (312) 746-5377"}/>
+                <Text style = {styles.step1_2}>1. Gather report info. Include patient’s name, DOB, age, sex, race/ethnicity, address, and telephone number. </Text>
+                <Text style = {styles.step1_2}>2. Record method of diagnosis, if available</Text>
+                <Text style = {styles.step3}>3. Submit isolate or clinical materials to IDPH Lab
+                                             W. Taylor St., Chicago, IL, 60612, 312-793-1322.</Text>
+                <CallButton callNumber = {getNumber(this.state.name)} subtitle = {"If unavailable, call (312) 746-5377"}  urgency={this.state.data.urgency}/>
+                {lineAndSubtitle}
+
+                <Text style = {styles.info}>Information:</Text>
+                <Text style = {styles.step3}>After Hours</Text>
+                <Text style = {styles.step3}>Does HIPAA allow this?</Text>
+                <Text style = {styles.step3}>Communicative Disease Fax</Text>
+
 
             </View>
+
 
         );
     }
 
+}
+
+function getNumber(diseaseName) {
+    let numberType = jsonData.diseases[diseaseName]["phone_number"];
+    return (JSON.stringify(jsonData.phone_numbers[numberType]["number"][0]));
 }
 
 function checkUrgency(input) {
@@ -56,11 +77,15 @@ function checkUrgency(input) {
     {
         return 3;
     }
-    
 }
+function parseAlternate(names) {
+    let n = numbers.reduce((a, b) => a.concat(0, b))
+}
+
 
 const styles = StyleSheet.create({
     container: {
+        
         flex: 1,
     },
     next: {
@@ -73,13 +98,57 @@ const styles = StyleSheet.create({
 
     },
 
-    steps: {
+    step1_2: {
         marginLeft: 34,
         marginBottom: 19.5,
         fontFamily: 'Arial',
         fontSize: 13,
         marginRight: 34,
+    },
+    step3: {
+        marginLeft: 34,
+        marginTop: 12,
+        fontFamily: 'Arial',
+        fontSize: 13,
+        marginRight: 34,
+    },
+
+
+    AltName: {
+        fontFamily: 'Arial',
+        fontWeight: 'bold',
+        fontSize: 17,
+        marginTop: 15,
+        marginBottom: 10.5,
+    },
+
+    info: {
+        marginLeft: 34,
+        fontFamily: 'Arial',
+        fontWeight: 'bold',
+        fontSize: 17,
+        marginTop: 15,
+        marginBottom: 10.5,
+    },
+
+    alternatenamelist: {
+        fontSize: 13,
+        marginBottom: 11.5,
+
+    },
+
+    line: {
+        marginTop: 5.5,
+        marginLeft: 34,
+        marginRight: 34,
+        borderTopWidth: 1,
+        borderTopColor: "#D8D8D8",
+        borderBottomWidth: 1,
+        borderBottomColor: "#D8D8D8",
 
     }
+
+
+
 
 });
