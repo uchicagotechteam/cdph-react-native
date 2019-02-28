@@ -23,14 +23,14 @@ export default class Search extends React.Component{
     updateSearch = search => {
         this.setState({ search });
 
-        if (search != ''){
+        if (search.length > 0){
             if (this.searching == false && search != ""){
                 this.searching = true;
             }
 
             // filter out diseases without the search characters, changing both names to lowercase
             var bank = Object.keys(jsonData["diseases"]).filter((disease) =>
-                disease.toLowerCase().indexOf(search.toLowerCase()) !== -1);
+                disease.toLowerCase().slice(0, search.length) == search.toLowerCase());
 
             this.setState({
                 cards: bank.map((disease) =>
@@ -67,7 +67,12 @@ export default class Search extends React.Component{
             }
         ];
 
-        var dropDowns = faq.map((q, index) => <DropButton key={index} heading={q["heading"]} info={q["info"]} open={false} />)
+        var dropDowns = faq.map((q, index) =>
+            <DropButton key={index}
+                        heading={q["heading"]}
+                        info={q["info"]}
+                        open={false}
+                        style={styles.dropdown}/>)
 
         const { search } = this.state;
         return (
@@ -83,7 +88,6 @@ export default class Search extends React.Component{
                 />
 
                 {this.searching ? this.state.cards : dropDowns }
-
             </View>
 
         );
@@ -117,5 +121,8 @@ const styles = StyleSheet.create({
     },
     searchContainer: {
         backgroundColor: 'white'
+    },
+    dropdown: {
+        width: 300
     }
 });
