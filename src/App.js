@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         backgroundColor: '#F5FCFF',
+        fontFamily: 'Gotham'
     },
     welcome: {
         fontSize: 20,

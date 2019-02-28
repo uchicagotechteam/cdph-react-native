@@ -182,7 +182,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 1
       },
-      "Enteric Escherichia coli infections(O157:H7, STEC, EHEC, EPEC, ETEC)": {
+      "Enteric Escherichia coli infections": {
         "alt_names": [
           "Enteric Escherichia coli infections(O157:H7, STEC, EHEC, EPEC, ETEC)",
           "E. Coli",
@@ -331,7 +331,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 0
       },
-      "Staphylococcus aureus, Methicillin resistant (MRSA) 2 or more cases in a community setting, or in infants under 61 days of age": {
+      "Staphylococcus aureus": {
         "alt_names": [
           "Staphylococcus aureus, Methicillin resistant (MRSA) 2 or more cases in a community setting, or in infants under 61 days of age",
           "Staph",
@@ -347,7 +347,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 0
       },
-      "Staphylococcus aureus, intermediate or high level resistance to vancomycin": {
+      "Staphylococcus aureus": {
         "alt_names": [
           "Staphylococcus aureus, intermediate or high level resistance to vancomycin",
           "Staph",
@@ -358,7 +358,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 1
       },
-      "Streptococcal infections, Group A, invasive and sequelae": {
+      "Streptococcal infections": {
         "alt_names": [
           "Streptococcal infections",
           "Streptococcal",
@@ -420,7 +420,7 @@
         "phone_number": ["Sexually Transmitted Infection (STI) Surveillance"],
         "submit_to_lab": 0
       },
-      "Chlamydia (including lymphogranuloma venereum)": {
+      "Chlamydia": {
         "alt_names": [
           "Chlamydia (including lymphogranuloma venereum)",
           "Chlamydia",
@@ -507,7 +507,7 @@
         "phone_number": ["HIV/AIDS Surveillance"],
         "submit_to_lab": 0
       },
-      "Influenza deaths in persons less than 18 years of age": {
+      "Influenza deaths": {
         "alt_names": [
           "Influenza deaths in persons less than 18 years of age",
           "Influenza"
@@ -614,7 +614,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 1
       },
-      "Streptococcus pneumoniae, invasive disease (< 5 years)": {
+      "Streptococcus pneumoniae": {
         "alt_names": [
           "Streptococcus",
           "pneumoniae",
@@ -663,7 +663,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 0
       },
-      "Toxic shock syndrome due to staphylococcus aureus infection": {
+      "Toxic shock syndrome": {
         "alt_names": [
           "Toxic Shock syndrome",
           "toxic shock",

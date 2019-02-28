@@ -56,8 +56,7 @@ export default class CallButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        width: '80%'
+        justifyContent: 'center'
     },
     button: {
         alignItems: 'center',

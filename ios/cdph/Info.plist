@@ -82,6 +82,9 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Gotham Bold.otf</string>
+		<string>Gotham-Light-Italic.otf</string>
+		<string>Gotham.otf</string>
 	</array>
 </dict>
 </plist>
