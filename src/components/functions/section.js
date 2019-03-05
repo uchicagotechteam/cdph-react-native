@@ -5,111 +5,114 @@ import Card from './card.js';
 
 
 var jsonData = require('../../assets/data.json');
-var keys=Object.keys(jsonData.diseases);
-var immediate=[];
-var medium=[];
-var low=[];
-for(var i=0; i<keys.length; i++)
-{
-    if(jsonData.diseases[keys[i]]["urgency"]=="3 hours")
-    {
-        immediate.push(keys[i]);
-    }
-}
-for(var i=0; i<keys.length; i++)
-{
-    if(jsonData.diseases[keys[i]]["urgency"]=="24 hours")
-    {
-        medium.push(keys[i]);
-    }
-}
-for(var i=0; i<keys.length; i++)
-{
-    if(jsonData.diseases[keys[i]]["urgency"]=="7 days")
-    {
-        low.push(keys[i]);
-    }
-}
-
-immediate.shift()
-immediate.shift()
-immediate=immediate.sort()
-immediate.unshift(keys[0], keys[1])
-medium=medium.sort()
-low=low.sort()
-
-var list1 = immediate.map((disease) =>
-    <Card key={disease.replace(/\s/g, '')}
-            text={disease}
-            urgency="3 hours"/>)
-
-var list2 = medium.map((disease) =>
-    <Card key={disease.replace(/\s/g, '')}
-            text={disease}
-            urgency="24 hours"/>)
-
-var list3 = low.map((disease) =>
-    <Card key={disease.replace(/\s/g, '')}
-            text={disease}
-            urgency="7 days"/>)
-
-
-
-const Scene1 = ({ }) => (
-    <ScrollView style={{ flex: 1}}>
-        {list1}
-    </ScrollView>
-
-);
-
-const Scene2 = ({ }) => (
-    <ScrollView style={{ flex: 1}}>
-        {list2}
-    </ScrollView>
-);
-
-const Scene3 = ({ }) => (
-    <ScrollView style={{ flex: 1}}>
-        {list3}
-    </ScrollView>
-);
-
-const ROUTES = {
-    Scene1,
-    Scene2,
-    Scene3
-    // ideally you would have a ROUTES object with multiple React component scenes
-};
-
-// There are three types of labels (image, text, and element)
-const ROUTESTACK = [
-    { text: 'IMMEDIATE', title: 'Scene1' }, // title is just the name of the Component being rendered.  See the renderScene property below
-    { text: '24 HOURS', title: 'Scene2' },
-    { text: '7 DAYS', title: 'Scene3' }
-];
 
 export default class TopNav extends React.Component {
     render() {
-        return (
-            <TopBarNav
-                // routeStack and renderScene are required props
-                routeStack={ROUTESTACK}
-                renderScene={(route) => {
-            // This is a lot like the now deprecated Navigator component
-            let Component = ROUTES[route.title];
-            return <Component />;
-        }}
-                // Below are optional props
-                headerStyle={[styles.headerStyle, { paddingTop: 100 }]} // probably want to add paddingTop if using TopBarNav for the  entire height of screen to account for notches/status bars
-                textStyle={styles.textStyle}
-                underlineStyle={styles.underlineStyle}
-                sidePadding={10} // Can't set sidePadding in headerStyle because it's needed to calculate the width of the tabs
-                inactiveOpacity={0.5}
-                fadeLabels={true}
-            />
+        //creating the arrays of diseases by urgency
+        var keys=Object.keys(jsonData.diseases);
+        var immediate=[];
+        var medium=[];
+        var low=[];
+        for(var i=0; i<keys.length; i++)
+        {
+            if(jsonData.diseases[keys[i]]["urgency"]=="3 hours")
+            {
+                immediate.push(keys[i]);
+            }
+        }
+        for(var i=0; i<keys.length; i++)
+        {
+            if(jsonData.diseases[keys[i]]["urgency"]=="24 hours")
+            {
+                medium.push(keys[i]);
+            }
+        }
+        for(var i=0; i<keys.length; i++)
+        {
+            if(jsonData.diseases[keys[i]]["urgency"]=="7 days")
+            {
+                low.push(keys[i]);
+            }
+        }
 
-        );
-    }
+        //sorting the arrays by alphabet
+        immediate.shift()
+        immediate.shift()
+        immediate=immediate.sort()
+        immediate.unshift(keys[0], keys[1])
+        medium=medium.sort()
+        low=low.sort()
+
+        //creating lists of cards to populate the scenes
+        var list1 = immediate.map((disease) =>
+            <Card key={disease.replace(/\s/g, '')}
+        text={disease}
+        urgency="3 hours"/>)
+
+        var list2 = medium.map((disease) =>
+            <Card key={disease.replace(/\s/g, '')}
+        text={disease}
+        urgency="24 hours"/>)
+
+        var list3 = low.map((disease) =>
+            <Card key={disease.replace(/\s/g, '')}
+        text={disease}
+        urgency="7 days"/>)
+
+
+        //creating the scenes to display on the screen
+        const Scene1 = ({ }) => (
+            <ScrollView style={{ flex: 1}}>
+        {list1}
+    </ScrollView>
+    );
+
+        const Scene2 = ({ }) => (
+            <ScrollView style={{ flex: 1}}>
+        {list2}
+    </ScrollView>
+    );
+
+        const Scene3 = ({ }) => (
+            <ScrollView style={{ flex: 1}}>
+        {list3}
+    </ScrollView>
+    );
+
+        //provides routes for the individual scenes
+        const ROUTES = {
+            Scene1,
+            Scene2,
+            Scene3
+        };
+
+        // Creates a routestack of each tab and it's corresponding scene
+        const ROUTESTACK = [
+            { text: 'IMMEDIATE', title: 'Scene1' },
+            { text: '24 HOURS', title: 'Scene2' },
+            { text: '7 DAYS', title: 'Scene3' }
+        ];
+            return (
+                <TopBarNav
+                    // routeStack and renderScene are required props
+                    routeStack={ROUTESTACK}
+                    renderScene={(route) =>
+                {
+                //deciding which scene to display
+                let Scene = ROUTES[route.title];
+                return <Scene />;
+                }}
+                    //these are all the styles
+                    headerStyle={[styles.headerStyle, { paddingTop: 100 }]}
+                    textStyle={styles.textStyle}
+                    underlineStyle={styles.underlineStyle}
+                    sidePadding={10}
+                    inactiveOpacity={0.5}
+                    fadeLabels={true}
+                />
+
+            );
+        }
 }
 
 const styles = StyleSheet.create({
