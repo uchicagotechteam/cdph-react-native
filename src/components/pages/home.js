@@ -1,8 +1,7 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 
-import DropButton from '../functions/drop-down';
-import Search from '../functions/search-bar';
+import Main from './main';
 
 export default class Home extends React.Component {
     constructor(props){
@@ -10,31 +9,10 @@ export default class Home extends React.Component {
     }
 
     render(){
-        // faq = [
-        //     {
-        //         heading: "About MedReport",
-        //         info: "This is an app to help healthcare providers determine which diseases they are mandated to report and how to report them!",
-        //         open: false
-        //     },
-        //     {
-        //         heading: "How does HIPAA apply?",
-        //         info: "placeholder text wow the quick brown fox and stuff haha crazy",
-        //         open: false
-        //     },
-        //     {
-        //         heading: "Any questions?",
-        //         info: "placeholder text wow the quick brown fox and stuff haha crazy",
-        //         open: false
-        //     }
-        // ];
-
         return (
             <View style={styles.container}>
                 <Image source={require('../../assets/NEWmedreportbackground.png')} style={styles.image}/>
-                <Search style={styles.search}/>
-                {/*<DropButton heading={faq[0]["heading"]} info={faq[0]["info"]} open={false}/>*/}
-                {/*<DropButton heading={faq[1]["heading"]} info={faq[1]["info"]} open={false}/>*/}
-                {/*<DropButton heading={faq[2]["heading"]} info={faq[2]["info"]} open={false}/>*/}
+                <Main style={styles.search}/>
             </View>
         );
     }

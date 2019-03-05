@@ -1,15 +1,16 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {SearchBar} from 'react-native-elements';
-import Card from './card';
-import DropButton from './drop-down';
-
+import Card from '../functions/card';
+import DropButton from '../functions/drop-down';
+import Title from '../functions/title';
 
 var jsonData = require('../../assets/data.json');
 
 
-export default class Search extends React.Component{
+export default class Main extends React.Component{
     searching = false;
+    pages = ["faq", "searching", "details"];  // Three potential displays for this page
 
     constructor(props){
         super(props);
@@ -72,6 +73,7 @@ export default class Search extends React.Component{
                         heading={q["heading"]}
                         info={q["info"]}
                         open={false}
+
                         />)
 
         const { search } = this.state;
@@ -91,7 +93,12 @@ export default class Search extends React.Component{
                     <ScrollView style={{ flex: 1}}>
                         {this.state.cards}
                     </ScrollView> :
-                    dropDowns }
+                    <View style={styles.dropDown}>
+                        <Title heading={"Additional Information"}>
+                        </Title>
+                        {dropDowns}
+                    </View>
+                    }
             </View>
 
         );
@@ -107,6 +114,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 12,
         width: 300,
+        top: 225,
         marginLeft: '11.7%',
         marginRight: '11.7%',
         alignItems: 'center',
@@ -123,5 +131,10 @@ const styles = StyleSheet.create({
     },
     searchContainer: {
         backgroundColor: 'white'
+    },
+    dropDown: {
+        top: 270,
+        marginLeft: '11.7%',
+        marginRight: '11.7%',
     }
 });
