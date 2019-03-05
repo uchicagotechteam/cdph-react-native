@@ -66,8 +66,7 @@ export default class CallButton extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center'
+
     },
     button1: {
         alignItems: 'center',
@@ -80,9 +79,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4,
         shadowRadius: 2,
         elevation: 1,
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 10,
+        marginLeft: 34,
+        marginRight: 34,
+        marginTop: 12,
+
     },
     button2: {
         alignItems: 'center',
@@ -95,9 +95,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4,
         shadowRadius: 2,
         elevation: 1,
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 10,
+        marginLeft: 34,
+        marginRight: 34,
+        marginTop: 12,
     },
     button3: {
         alignItems: 'center',
@@ -110,9 +110,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4,
         shadowRadius: 2,
         elevation: 1,
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 10,
+        marginLeft: 34,
+        marginRight: 34,
+        marginTop: 12,
     },
     text: {
         color: 'white',
@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         textAlign: 'center',
         fontStyle: 'italic',
-        color: 'grey'
+        color: 'grey',
+        marginBottom: 5.5,
     }
 });
