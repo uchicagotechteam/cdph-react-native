@@ -9,7 +9,7 @@ Note: this component searches through the json file and outputs corresponding va
 
  */
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import Heading from '../functions/heading.js';
 import CallButton from '../functions/button.js';
 
@@ -29,13 +29,13 @@ export default class DetailContents extends React.Component{
 
 
     render() {
-        let lineAndSubtitle =  <View style = {styles.line}>
-                        <Text style = {styles.AltName}>Alternate Names:</Text>
-                        <Text style = {styles.alternatenamelist}>{intersperse(this.state.data["alt_names"], ", ")}</Text>
+        let lineAndSubtitle =   <View style = {styles.line}>
+                                    <Text style = {styles.AltName}>Alternate Names:</Text>
+                                    <Text style = {styles.alternatenamelist}>{intersperse(this.state.data["alt_names"], ", ")}</Text>
 
-                    </View>
+                                </View>
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <Heading heading = {this.state.name} subheading = {msg.concat(this.state.data.urgency)} urgency = {checkUrgency(this.state.data.urgency)}/>
                 <Text style = {styles.next}>Next steps: </Text>
                 <Text style = {styles.step1_2}>1. Gather report info. Include patient’s name, DOB, age, sex, race/ethnicity, address, and telephone number. </Text>
@@ -44,14 +44,14 @@ export default class DetailContents extends React.Component{
                                              W. Taylor St., Chicago, IL, 60612, 312-793-1322.</Text>
                 <CallButton callNumber = {getNumber(this.state.name)} subtitle = {"If unavailable, call (312) 746-5377"}  urgency={this.state.data.urgency}/>
                 {lineAndSubtitle}
-
                 <Text style = {styles.info}>Information:</Text>
                 <Text style = {styles.step3}>After Hours</Text>
                 <Text style = {styles.step3}>Does HIPAA allow this?</Text>
-                <Text style = {styles.step3}>Communicative Disease Fax</Text>
+                <Text style = {styles.step3}>Communicable Disease Fax</Text>
 
 
-            </View>
+
+            </ScrollView>
 
 
         );
@@ -85,7 +85,6 @@ function parseAlternate(names) {
 
 const styles = StyleSheet.create({
     container: {
-        
         flex: 1,
     },
     next: {
@@ -107,7 +106,6 @@ const styles = StyleSheet.create({
     },
     step3: {
         marginLeft: 34,
-        marginTop: 12,
         fontFamily: 'Arial',
         fontSize: 13,
         marginRight: 34,
@@ -118,8 +116,10 @@ const styles = StyleSheet.create({
         fontFamily: 'Arial',
         fontWeight: 'bold',
         fontSize: 17,
-        marginTop: 15,
-        marginBottom: 10.5,
+        marginTop: 11,
+        marginBottom: 9,
+
+
     },
 
     info: {
@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
         fontSize: 13,
         marginBottom: 11.5,
 
+
     },
 
     line: {
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
         borderTopColor: "#D8D8D8",
         borderBottomWidth: 1,
         borderBottomColor: "#D8D8D8",
+        flex: 1,
 
     }
 
