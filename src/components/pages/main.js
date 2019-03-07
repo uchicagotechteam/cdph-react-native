@@ -141,6 +141,6 @@ const styles = StyleSheet.create({
         //here's how to change where the cards are displayed
         flexGrow: 1,
         top: 240,
-        marginBottom: 270
+        marginBottom: 255
     }
 });
