@@ -8,10 +8,12 @@ do yarn add intersperse
 Note: this component searches through the json file and outputs corresponding values from disease names
 
  */
+
 import React from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import Heading from '../functions/heading.js';
 import CallButton from '../functions/button.js';
+import BackTopBar from '../functions/backTopBar.js';
 
 var intersperse = require('intersperse');
 var jsonData = require('../../assets/data.json');
@@ -36,13 +38,14 @@ export default class DetailContents extends React.Component{
                                 </View>
         return (
             <ScrollView style={styles.container}>
+                {<BackTopBar urgency = {checkUrgency(this.state.data.urgency)}/> }
                 <Heading heading = {this.state.name} subheading = {msg.concat(this.state.data.urgency)} urgency = {checkUrgency(this.state.data.urgency)}/>
-                <Text style = {styles.next}>Next steps: </Text>
+                <Text style = {styles.next}>Next Steps: </Text>
                 <Text style = {styles.step1_2}>1. Gather report info. Include patient’s name, DOB, age, sex, race/ethnicity, address, and telephone number. </Text>
                 <Text style = {styles.step1_2}>2. Record method of diagnosis, if available</Text>
                 <Text style = {styles.step3}>3. Submit isolate or clinical materials to IDPH Lab
                                              W. Taylor St., Chicago, IL, 60612, 312-793-1322.</Text>
-                <CallButton callNumber = {getNumber(this.state.name)} subtitle = {"If unavailable, call (312) 746-5377"}  urgency={this.state.data.urgency}/>
+                <CallButton callNumber = {getNumber(this.state.name)} subtitle = {"If unavailable, call (312) 746-5377"}  urgency={"3 hours"}/>
                 {lineAndSubtitle}
                 <Text style = {styles.info}>Information:</Text>
                 <Text style = {styles.step3}>After Hours</Text>
@@ -61,7 +64,7 @@ export default class DetailContents extends React.Component{
 
 function getNumber(diseaseName) {
     let numberType = jsonData.diseases[diseaseName]["phone_number"];
-    return (JSON.stringify(jsonData.phone_numbers[numberType]["number"][0]));
+    return parseInt(jsonData.phone_numbers[numberType]["number"][0], 10);
 }
 
 function checkUrgency(input) {
