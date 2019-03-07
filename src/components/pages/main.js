@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import Card from '../functions/card';
 import DropButton from '../functions/drop-down';
@@ -90,7 +90,7 @@ export default class Main extends React.Component{
                 />
 
                 {this.searching ?
-                    <ScrollView style={{ flex: 1}}>
+                    <ScrollView showsVerticalScrollIndicator={true} style={styles.cards}>
                         {this.state.cards}
                     </ScrollView> :
                     <View style={styles.dropDown}>
@@ -108,7 +108,7 @@ export default class Main extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flexGrow: 1
     },
     barContainer: {
         backgroundColor: 'white',
@@ -136,5 +136,11 @@ const styles = StyleSheet.create({
         top: 270,
         marginLeft: '11.7%',
         marginRight: '11.7%',
+    },
+    cards: {
+        //here's how to change where the cards are displayed
+        flexGrow: 1,
+        top: 240,
+        marginBottom: 270
     }
 });
