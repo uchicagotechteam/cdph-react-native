@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native';
 import {Linking} from 'react-native'
 import {Icon} from 'react-native-vector-icons/FontAwesome';
 
-//takes in two props, call number and subtitle
+//takes in three props, callNumber, urgency, and subtitle
 export default class CallButton extends React.Component {
     constructor(props){
         super(props);
@@ -45,7 +45,7 @@ export default class CallButton extends React.Component {
             <View style={styles.container}>
                 <TouchableOpacity
                     style={this.chooseStyle(this.props.urgency)}
-                    onPress={this.callNumber(this.props.callNumber)}
+                    onPress={() => this.callNumber(this.props.callNumber)}
                 >
                     {/*<Icon*/}
                     {/*name='phone'*/}
