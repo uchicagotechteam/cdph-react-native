@@ -22,44 +22,66 @@ export default class DropButton extends React.Component {
 
     render() {
         return (
-            <ScrollView>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={this.dropToggle}>
-                        <Text style={styles.buttonTitle}> {this.props.heading} </Text>
-                        <View style="{styles.arrowButton">
-                            {this.state.open ? (
-                                <Icon name="up" color="#FFFFFF" size = {24} />
-                            ) : (
-                                <Icon name="down" color="#FFFFFF" size = {24} />
-                            )}
-                        </View>
-                        <Text style={styles.buttonInfo}> {this.state.open ? this.props.info : ""} </Text>
-                </TouchableOpacity>
-            </ScrollView>
+            <TouchableOpacity
+                style={styles.touchable}
+                onPress={this.dropToggle}>
 
+                <View style={styles.container}>
+                    <Text style={styles.buttonTitle}>
+                        {this.props.heading}
+                    </Text>
+                    <View style={styles.arrowButton}>
+                        {this.state.open ? (
+                            <Icon name="up" color="#FFFFFF" size = {20} />
+                        ) : (
+                            <Icon name="down" color="#FFFFFF" size = {20} />
+                        )}
+                    </View>
+                </View>
+                {this.state.open ? (
+                    <Text style={styles.buttonInfo}>
+                        {this.props.info}
+                    </Text>
+                ) : (
+                    <Text> </Text>
+                )}
+
+            </TouchableOpacity>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    button: {
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingTop: 15,
+    },
+    touchable: {
         color: '#ffffff',
         backgroundColor: '#002f86',
         marginTop: 10,
-        padding: 5,
-        width: 300
+        //padding: 5,
+        width: 300,
+        paddingLeft: 10,
     },
     buttonInfo: {
         color: '#ffffff',
-        padding: 5,
-        width: '85%'
+        width: '85%',
+        paddingLeft: 10,
+        paddingTop: 10,
+        paddingBottom: 15
     },
     buttonTitle: {
+        paddingTop: 5,
         color: '#ffffff',
-        padding: 5,
+        paddingLeft: 10,
         width: '85%',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 15,
     },
+    arrowButton: {
+        paddingRight: 15
+    }
   })
   
