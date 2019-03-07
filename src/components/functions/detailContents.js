@@ -61,7 +61,7 @@ export default class DetailContents extends React.Component{
 
 function getNumber(diseaseName) {
     let numberType = jsonData.diseases[diseaseName]["phone_number"];
-    return (JSON.stringify(jsonData.phone_numbers[numberType]["number"][0]));
+    return parseInt(jsonData.phone_numbers[numberType]["number"][0], 10);
 }
 
 function checkUrgency(input) {
