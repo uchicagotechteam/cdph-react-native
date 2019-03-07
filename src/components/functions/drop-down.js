@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, ScrollView, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
@@ -29,9 +29,9 @@ export default class DropButton extends React.Component {
                         <Text style={styles.buttonTitle}> {this.props.heading} </Text>
                         <View style="{styles.arrowButton">
                             {this.state.open ? (
-                                <Icon name="down" color="#FFFFFF" size = {24} />
-                            ) : (
                                 <Icon name="up" color="#FFFFFF" size = {24} />
+                            ) : (
+                                <Icon name="down" color="#FFFFFF" size = {24} />
                             )}
                         </View>
                         <Text style={styles.buttonInfo}> {this.state.open ? this.props.info : ""} </Text>
