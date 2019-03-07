@@ -48,6 +48,16 @@ export default class Main extends React.Component{
         }
     }
 
+    handleSearchCancel = () => {
+        alert("test");
+        this.updateSearch("");
+    }
+
+    handleSearchClear = () => {
+        alert("test");
+        this.updateSearch(""); 
+    }
+
 
     render() {
         var faq = [
@@ -58,12 +68,18 @@ export default class Main extends React.Component{
             },
             {
                 heading: "How does HIPAA apply?",
-                info: "placeholder text wow the quick brown fox and stuff haha crazy",
+                info: "The Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule is the first federal protection for the privacy of Protected Health Information (PHI). PHI, such as the patient’s medical issues, physical and mental conditions, and medications they take, is considered confidential. Normally, you cannot relay any PHI to anyone without consent. However, because of Section 164.512 under HIPAA, confidentiality must be broken for mandatory reporting.\n"
+                + "Mandatory reporting applies to many infectious diseases. You are responsible for fully documenting an objective report of your findings when you deem it necessary. Make sure to act in good faith, report only what you know to be factual, and avoid any speculation as to what you believe may have occurred or reporting how you feel. \n"
+                + "\n\n HIPAA privacy rules, specifically 45 CFR §164.512, addresses the uses and disclosures of PHI for which an authorization or an opportunity to agree or object is not required. Specifically: \n"
+                + "Section 164.512(a) permits disclosures that are required by law, including statutes and rules\n"
+                + "Section 164.512(b) permits a covered entity to disclose PHI to: \n"
+                + '"A public health authority that is authorized by law to collect or receive such information for the purpose of preventing or controlling disease, injury, or disability, including but not limited to, the reporting of disease, injury, vital events such as birth or death, and the conduct of public health surveillance, public health investigations, and public health interventions; ..."'
+                + 'Under HIPAA, 45 CFR 164.501, public health authority is defined as "an agency or authority of ..., a State,  ..., or a political subdivision of a State ..., that is responsible for public health matters as part of its official mandate."',
                 open: false
             },
             {
                 heading: "Any questions?",
-                info: "placeholder text wow the quick brown fox and stuff haha crazy",
+                info: "Visit the website.",
                 open: false
             }
         ];
@@ -76,17 +92,20 @@ export default class Main extends React.Component{
 
                         />)
 
-        const { search } = this.state;
+    
         return (
             <View style={styles.container}>
                 <SearchBar
                     placeholder="Search for disease"
                     onChangeText={this.updateSearch}
-                    value={search}
+                    value={this.state.search}
                     containerStyle={styles.barContainer}
                     inputStyle={styles.input}
                     lightTheme={true}
+                    autoCorrect={false}
                     inputContainerStyle={styles.searchContainer}
+                    onCancel={this.handleSearchCancel}
+                    onClear={this.handleSearchClear}
                 />
 
                 {this.searching ?
