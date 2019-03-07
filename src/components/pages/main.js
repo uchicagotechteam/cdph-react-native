@@ -79,7 +79,7 @@ export default class Main extends React.Component{
             },
             {
                 heading: "Any questions?",
-                info: "Visit the website.",
+                info: "(312) 747-2374\n333 S. State Street\nRoom 200\nChicago, IL 60604\n",
                 open: false
             }
         ];
