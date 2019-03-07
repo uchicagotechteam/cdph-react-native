@@ -1,6 +1,7 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 /* Props looks like this:
  * {header: string, info: string, open: boolean}
@@ -9,7 +10,7 @@ import {TouchableOpacity} from 'react-native';
 export default class DropButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { open: this.props.open }
+        this.state = { open: this.props.open };
     }
 
     //Toggle open
@@ -21,12 +22,22 @@ export default class DropButton extends React.Component {
 
     render() {
         return (
-            <TouchableOpacity 
-            style={styles.button}
-            onPress={this.dropToggle}>
-                <Text style={styles.buttonTitle}> {this.props.heading} </Text>
-                <Text style={styles.buttonInfo}> {this.state.open ? this.props.info : ""} </Text>
-            </TouchableOpacity>
+            <ScrollView>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={this.dropToggle}>
+                        <Text style={styles.buttonTitle}> {this.props.heading} </Text>
+                        <View style="{styles.arrowButton">
+                            {this.state.open ? (
+                                <Icon name="down" color="#FFFFFF" size = {24} />
+                            ) : (
+                                <Icon name="up" color="#FFFFFF" size = {24} />
+                            )}
+                        </View>
+                        <Text style={styles.buttonInfo}> {this.state.open ? this.props.info : ""} </Text>
+                </TouchableOpacity>
+            </ScrollView>
+
         )
     }
 }
@@ -49,7 +60,6 @@ const styles = StyleSheet.create({
         padding: 5,
         width: '85%',
         fontWeight: 'bold'
-    }
-
+    },
   })
   
