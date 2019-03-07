@@ -1,22 +1,26 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image, Button} from 'react-native';
 
 import Main from './main';
+import DetailContents from '../functions/detailContents.js';
+import TestButton from '../functions/testProp.js';
 
 export default class Home extends React.Component {
     constructor(props){
         super(props);
     }
 
+
     render(){
         return (
             <View style={styles.container}>
-                <Image source={require('../../assets/NEWmedreportbackground.png')} style={styles.image}/>
-                <Main style={styles.search}/>
+                <TestButton onPress={this.props.f1("List")}/>
             </View>
         );
     }
 }
+
+
 
 
 const styles = StyleSheet.create({
