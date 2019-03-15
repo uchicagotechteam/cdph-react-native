@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 /* Props looks like this:
- * {header: string, info: string, open: boolean}
+ * {header: string, info: string, open: boolean, iconcolor: string, iconsize: int}
  */
 
 export default class DropButton extends React.Component {
@@ -18,28 +18,28 @@ export default class DropButton extends React.Component {
         this.setState({
             open: !this.state.open
           })
-    }
+    };
 
     render() {
         return (
             <TouchableOpacity
-                style={styles.touchable}
+                style={this.props.style.touchable}
                 onPress={this.dropToggle}>
 
-                <View style={styles.container}>
-                    <Text style={styles.buttonTitle}>
+                <View style={this.props.style.container}>
+                    <Text style={this.props.style.buttonTitle}>
                         {this.props.heading}
                     </Text>
-                    <View style={styles.arrowButton}>
+                    <View style={this.props.style.arrowButton}>
                         {this.state.open ? (
-                            <Icon name="up" color="#FFFFFF" size = {20} />
+                            <Icon name="up" color={this.props.iconcolor} size = {this.props.iconsize} />
                         ) : (
-                            <Icon name="down" color="#FFFFFF" size = {20} />
+                            <Icon name="down" color={this.props.iconcolor} size = {this.props.iconsize} />
                         )}
                     </View>
                 </View>
                 {this.state.open ? (
-                    <Text style={styles.buttonInfo}>
+                    <Text style={this.props.style.buttonInfo}>
                         {this.props.info}
                     </Text>
                 ) : (
@@ -50,38 +50,3 @@ export default class DropButton extends React.Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingTop: 15,
-    },
-    touchable: {
-        color: '#ffffff',
-        backgroundColor: '#002f86',
-        marginTop: 10,
-        //padding: 5,
-        width: 300,
-        paddingLeft: 10,
-    },
-    buttonInfo: {
-        color: '#ffffff',
-        width: '85%',
-        paddingLeft: 10,
-        paddingTop: 10,
-        paddingBottom: 15
-    },
-    buttonTitle: {
-        paddingTop: 5,
-        color: '#ffffff',
-        paddingLeft: 10,
-        width: '85%',
-        fontWeight: 'bold',
-        fontSize: 15,
-    },
-    arrowButton: {
-        paddingRight: 15
-    }
-  })
-  
