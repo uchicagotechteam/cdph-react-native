@@ -11,6 +11,17 @@ export default class List extends React.Component {
             active: 'TopNav',
             disease: ''
         }
+
+    }
+
+    //function to update the state so that the page resets to its default after viewing a disease page
+    componentDidUpdate(prevProps, prevState, snapshot){
+        if (prevProps.reset != this.props.reset){
+            this.setState({
+                active: 'TopNav',
+                disease: ''
+            })
+        }
     }
 
     switchPage(update, disease){

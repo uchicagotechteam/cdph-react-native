@@ -13,49 +13,27 @@ export default class App extends Component<Props> {
     constructor(props) {
         super(props);
         this.state = {
-            Current: "Home",
-            Previous: "",
-            Disease: "Anthrax",
+            Current: "Home", // Current refers page being displayed
+            reset: false
         };
-
-        this.changeDisplayHandle = this.changeDisplayHandle.bind(this);
-        this.setDisease = this.setDisease.bind(this);
     }
 
-    // page is something like "Home" or "List" or "Details"
-    changeDisplayHandle(page) {
+    //function to allow us to reset the page to its default after visiting a disease page
+    changeReset(current){
         this.setState({
-            Previous: this.state.Current,
-            Current: page,
-        });
-        alert("changeDisplayHandle called");
+            Current: current,
+            reset: !this.state.reset
+        })
     }
-
-    setDisease(diseaseName) {
-        this.setState({
-            Disease: diseaseName,
-        });
-        alert("setDisease called");
-    }
-
 
 
     render() {
-        // let showNow;
-        // if (this.state.Current == "List")
-        // {
-        //     showNow = <List f1 = {this.changeDisplayHandle} f2 = {this.setDisease} />
-        // }
-        // else if (this.state.Current == "Home")
-        // {
-        //     showNow = <Home f1 = {this.changeDisplayHandle} f2 = {this.setDisease} />
-        // }
 
         return (
             <View style={styles.container}>
                 {this.state.Current == "Home" ?
-                    <Home f1 = {this.changeDisplayHandle} f2 = {this.setDisease} /> :
-                    <List f1 = {this.changeDisplayHandle} f2 = {this.setDisease} />}
+                    <Home reset={this.state.reset}/> :
+                    <List reset={this.state.reset} />}
 
                 <BottomNavigation >
                     <BottomNavigation.Action
@@ -63,7 +41,7 @@ export default class App extends Component<Props> {
                         iconSet = "SimpleLineIcons"
                         icon= {<SimpleLineIcons name = "home" size = {25} color = "red"/>}
                         label="Home"
-                        onPress={() => this.state.Current == 'Home' ? null : this.setState({ Current: 'Home' })}
+                        onPress={() => this.changeReset('Home')}
 
                     />
 
@@ -71,7 +49,7 @@ export default class App extends Component<Props> {
                         key="list"
                         icon={<SimpleLineIcons name = "list" size = {25} />}
                         label="List"
-                        onPress={() => this.state.Current == 'List' ? null : this.setState({ Current: 'List' })}
+                        onPress={() => this.changeReset('List')}
                     />
 
                 </BottomNavigation>

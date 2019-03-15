@@ -51,7 +51,8 @@ export default class Main extends React.Component{
     }
 
 
-                                         2      2              this.updateSearch("");
+    handleSearchCancel = () => {
+        this.updateSearch("");
     }
 
     handleSearchClear = () => {
