@@ -53,7 +53,28 @@ export default class App extends Component<Props> {
 
         return (
             <View style={styles.container}>
-                {this.state.Current == "Home" ? <Home f1 = {this.changeDisplayHandle} f2 = {this.setDisease} /> : null}
+                {this.state.Current == "Home" ?
+                    <Home f1 = {this.changeDisplayHandle} f2 = {this.setDisease} /> :
+                    <List f1 = {this.changeDisplayHandle} f2 = {this.setDisease} />}
+
+                <BottomNavigation >
+                    <BottomNavigation.Action
+                        key="home"
+                        iconSet = "SimpleLineIcons"
+                        icon= {<SimpleLineIcons name = "home" size = {25} color = "red"/>}
+                        label="Home"
+                        onPress={() => this.state.Current == 'Home' ? null : this.setState({ Current: 'Home' })}
+
+                    />
+
+                    <BottomNavigation.Action
+                        key="list"
+                        icon={<SimpleLineIcons name = "list" size = {25} />}
+                        label="List"
+                        onPress={() => this.state.Current == 'List' ? null : this.setState({ Current: 'List' })}
+                    />
+
+                </BottomNavigation>
                 {/*{showNow}*/}
             </View>
         );

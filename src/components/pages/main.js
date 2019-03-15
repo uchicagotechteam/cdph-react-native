@@ -21,6 +21,7 @@ export default class Main extends React.Component{
     }
 
 
+
     updateSearch = search => {
         this.setState({ search });
 
@@ -37,7 +38,8 @@ export default class Main extends React.Component{
                 cards: bank.map((disease) =>
                     <Card key={disease.replace(/\s/g, '')}
                           text={disease}
-                          urgency={jsonData["diseases"][disease]["urgency"]}/>)
+                          urgency={jsonData["diseases"][disease]["urgency"]}
+                          switch={this.props.switch}/>)
             })
         } else {
             this.setState({
@@ -48,14 +50,12 @@ export default class Main extends React.Component{
         }
     }
 
-    handleSearchCancel = () => {
-        alert("test");
-        this.updateSearch("");
+
+                                         2      2              this.updateSearch("");
     }
 
     handleSearchClear = () => {
-        alert("test");
-        this.updateSearch(""); 
+        this.updateSearch("");
     }
 
 
@@ -112,11 +112,10 @@ export default class Main extends React.Component{
                     <ScrollView showsVerticalScrollIndicator={true} style={styles.cards}>
                         {this.state.cards}
                     </ScrollView> :
-                    <View style={styles.dropDown}>
-                        <Title heading={"Additional Information"}>
-                        </Title>
+                    <ScrollView style={styles.dropDown}>
+                        <Title heading={"Additional Information"} />
                         {dropDowns}
-                    </View>
+                    </ScrollView>
                     }
             </View>
 
@@ -130,6 +129,7 @@ const styles = StyleSheet.create({
         flexGrow: 1
     },
     barContainer: {
+        top: '30%',
         backgroundColor: 'white',
         borderRadius: 12,
         width: 300,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     dropDown: {
-        top: 270,
+        top: '35%',
         marginLeft: '11.7%',
         marginRight: '11.7%',
     },

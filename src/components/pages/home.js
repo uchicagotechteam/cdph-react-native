@@ -3,18 +3,35 @@ import {Platform, StyleSheet, Text, View, Image, Button} from 'react-native';
 
 import Main from './main';
 import DetailContents from '../functions/detailContents.js';
-import TestButton from '../functions/testProp.js';
 
 export default class Home extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.state = {
+            active: 'main',
+            disease: ''
+        }
     }
+
+
+    switchPage(update, disease){
+        this.setState({
+            active: update,
+            disease: disease
+        });
+    }
+
 
 
     render(){
         return (
             <View style={styles.container}>
-                <TestButton onPress={this.props.f1("List")}/>
+                {this.state.active == 'main' ?
+                    <View style={styles.container}>
+                        <Image source={require('../../assets/NEWmedreportbackground.png')} style={styles.image}/>
+                        <Main switch={this.switchPage.bind(this)}/>
+                    </View> :
+                    <DetailContents disease={this.state.disease} switch={this.switchPage.bind(this)} back={"main"}/>}
             </View>
         );
     }

@@ -16,37 +16,25 @@ export default class Title extends React.Component{
 
     render() {
         return(
-            <View>
-                <Text style={textStyles.headingStyle}>{this.props.heading}</Text>
+            <View style={styles.container}>
+                <Text style={styles.headingStyle}>{this.props.heading}</Text>
             </View>
         )
     }
 }
 
 
-const textStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     headingStyle: {
         marginTop: 33,
-        marginLeft: 34,
         marginRight: 34,
         fontSize: 18,
         fontFamily: 'Arial',
         textAlign: 'left',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
-
-
-    textBox1: { // Most urgent
-
-        borderBottomColor: '#FC0F1B',
-        borderBottomWidth: 11,
-    },
-    textBox2: {
-        borderBottomColor: '#FDBF2E',
-        borderBottomWidth: 11,
-    },
-    textBox3: {
-        borderBottomColor: '#1EB1ED',
-        borderBottomWidth: 11,
-    },
+    container: {
+        borderBottomColor: 'red',
+        borderBottomWidth: 2,
+    }
 })

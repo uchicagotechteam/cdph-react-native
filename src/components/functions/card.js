@@ -26,10 +26,19 @@ export default class Card extends React.Component{
         }
     }
 
+    switchPage(disease){
+        if (disease){
+            this.props.switch("details", disease);
+        }
+    }
+
+
     render() {
         return(
-            <View style = {[cardStyles.generalbox, this.chooseStyle(this.props.urgency)]}>
-                <Text style={cardStyles.textStyle}>{this.props.text}</Text>
+            <View style = {[cardStyles.generalbox, this.chooseStyle(this.props.urgency)]} >
+                <Text style={cardStyles.textStyle} onPress={() => this.switchPage(this.props.text)}>
+                    {this.props.text}
+                </Text>
             </View>
 
         )
@@ -49,7 +58,7 @@ const cardStyles = StyleSheet.create({
     },
 
     generalbox: {
-        width: 300,
+        width: '82%',
         marginTop: 13,
         marginLeft: 34,
         marginRight: 34,

@@ -20,12 +20,13 @@ var jsonData = require('../../assets/data.json');
 
 var msg = "Report within ";
 
+
 export default class DetailContents extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             name: this.props.disease,
-            data: jsonData.diseases[this.props.disease],
+            data: jsonData.diseases[this.props.disease]
         };
     }
 
@@ -38,7 +39,10 @@ export default class DetailContents extends React.Component{
                                 </View>
         return (
             <ScrollView style={styles.container}>
-                {<BackTopBar urgency = {checkUrgency(this.state.data.urgency)}/> }
+                {<BackTopBar
+                    urgency = {checkUrgency(this.state.data.urgency)}
+                    switch  = {this.props.switch}
+                    back    = {this.props.back} /> }
                 <Heading heading = {this.state.name} subheading = {msg.concat(this.state.data.urgency)} urgency = {checkUrgency(this.state.data.urgency)}/>
                 <Text style = {styles.next}>Next Steps: </Text>
                 <Text style = {styles.step1_2}>1. Gather report info. Include patient’s name, DOB, age, sex, race/ethnicity, address, and telephone number. </Text>

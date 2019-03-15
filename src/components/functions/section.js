@@ -47,17 +47,20 @@ export default class TopNav extends React.Component {
         var list1 = immediate.map((disease) =>
             <Card key={disease.replace(/\s/g, '')}
         text={disease}
-        urgency="3 hours"/>)
+        urgency="3 hours"
+                  switch={this.props.switch}/>)
 
         var list2 = medium.map((disease) =>
             <Card key={disease.replace(/\s/g, '')}
         text={disease}
-        urgency="24 hours"/>)
+        urgency="24 hours"
+                  switch={this.props.switch}/>)
 
         var list3 = low.map((disease) =>
             <Card key={disease.replace(/\s/g, '')}
         text={disease}
-        urgency="7 days"/>)
+        urgency="7 days"
+                  switch={this.props.switch}/>)
 
 
         //creating the scenes to display on the screen

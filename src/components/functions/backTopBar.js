@@ -17,6 +17,12 @@ export default class BackTopBar extends React.Component{
         };
     }
 
+    switchPage(back){
+        if (back){
+            this.props.switch(back, '');
+        }
+    }
+
     /* take in a color
     create a function, onclick: state change goback = true
                                 function that kills itself, stops displaying itself
@@ -28,7 +34,7 @@ export default class BackTopBar extends React.Component{
         return (
             <View style={styles.container}>
                 <View style = {styles.backButton}>
-                    <Icon name="left" color="#FFFFFF" size = {24} />
+                    <Icon name="left" color="#FFFFFF" size = {24} onPress={this.switchPage.bind(this, this.props.back)} />
                 </View>
 
                 <Text style = {styles.title}>DISEASE INFO</Text>

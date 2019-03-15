@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "cdph-tvOS.app"
-               BlueprintName = "cdph-tvOS"
-               ReferencedContainer = "container:cdph.xcodeproj">
+               BuildableName = "CDPH-tvOS.app"
+               BlueprintName = "CDPH-tvOS"
+               ReferencedContainer = "container:CDPH.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "cdph-tvOSTests.xctest"
-               BlueprintName = "cdph-tvOSTests"
-               ReferencedContainer = "container:cdph.xcodeproj">
+               BuildableName = "CDPH-tvOSTests.xctest"
+               BlueprintName = "CDPH-tvOSTests"
+               ReferencedContainer = "container:CDPH.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "cdph-tvOSTests.xctest"
-               BlueprintName = "cdph-tvOSTests"
-               ReferencedContainer = "container:cdph.xcodeproj">
+               BuildableName = "CDPH-tvOSTests.xctest"
+               BlueprintName = "CDPH-tvOSTests"
+               ReferencedContainer = "container:CDPH.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "cdph-tvOS.app"
-            BlueprintName = "cdph-tvOS"
-            ReferencedContainer = "container:cdph.xcodeproj">
+            BuildableName = "CDPH-tvOS.app"
+            BlueprintName = "CDPH-tvOS"
+            ReferencedContainer = "container:CDPH.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "cdph-tvOS.app"
-            BlueprintName = "cdph-tvOS"
-            ReferencedContainer = "container:cdph.xcodeproj">
+            BuildableName = "CDPH-tvOS.app"
+            BlueprintName = "CDPH-tvOS"
+            ReferencedContainer = "container:CDPH.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "cdph-tvOS.app"
-            BlueprintName = "cdph-tvOS"
-            ReferencedContainer = "container:cdph.xcodeproj">
+            BuildableName = "CDPH-tvOS.app"
+            BlueprintName = "CDPH-tvOS"
+            ReferencedContainer = "container:CDPH.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
