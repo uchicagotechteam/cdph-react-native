@@ -95,43 +95,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 0
       },
-      "BrucellosisI": {
-        "alt_names": [
-          "Brucellosis",
-          "Brucellosis bioterrorism",
-          "Brucellosis outbreak",
-          "Bioterrorism",
-          "Outbreak"
-        ],
-        "urgency": "3 hours",
-        "phone_number": ["Communicable Disease Surveillance"],
-        "submit_to_lab": 1
-      },
-      "Q-feverI": {
-        "alt_names": [
-          "Q-fever",
-          "Q-fever bioterrorism",
-          "Q-fever outbreak",
-          "Bioterrorism",
-          "Outbreak"
-        ],
-        "urgency": "3 hours",
-        "phone_number": ["Communicable Disease Surveillance"],
-        "submit_to_lab": 1
-      },
-      "TularemiaI": {
-        "alt_names": [
-          "Tularemial",
-          "Tularemial bioterrorism",
-          "Tularemial outbreak",
-          "Bioterrorism",
-          "Outbreak"
-        ],
-        "urgency": "3 hours",
-        "phone_number": ["Communicable Disease Surveillance"],
-        "submit_to_lab": 1
-      },
-      "Q-fever24": {
+      "Q-fever": {
         "alt_names": [
           "Q-fever"
         ],
@@ -139,7 +103,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 1
       },
-      "Tularemia24": {
+      "Tularemia": {
         "alt_names": [
           "Tularemia"
         ],
@@ -147,7 +111,7 @@
         "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 1
       },
-      "Brucellosis24": {
+      "Brucellosis": {
         "alt_names": [
           "Brucellosis"
         ],

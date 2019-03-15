@@ -11,6 +11,16 @@ export default class List extends React.Component {
             active: 'TopNav',
             disease: ''
         }
+
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot){
+        if (prevProps.reset != this.props.reset){
+            this.setState({
+                active: 'TopNav',
+                disease: ''
+            })
+        }
     }
 
     switchPage(update, disease){

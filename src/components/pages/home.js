@@ -13,6 +13,16 @@ export default class Home extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot){
+        if (prevProps.reset != this.props.reset){
+            this.setState({
+                active: 'main',
+                disease: ''
+            })
+        }
+    }
+
+
 
     switchPage(update, disease){
         this.setState({
@@ -26,7 +36,7 @@ export default class Home extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-                {this.state.active == 'main' ?
+                {(this.state.active == 'main' || this.state.reset == true) ?
                     <View style={styles.container}>
                         <Image source={require('../../assets/NEWmedreportbackground.png')} style={styles.image}/>
                         <Main switch={this.switchPage.bind(this)}/>
