@@ -159,7 +159,7 @@
           "ETEC"
         ],
         "urgency": "24 hours",
-        "phone_number": [],
+        "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 1
       },
       "Foodborne or waterborne illness": {
@@ -331,7 +331,7 @@
           "sequelae"
         ],
         "urgency": "24 hours",
-        "phone_number": [],
+        "phone_number": ["Communicable Disease Surveillance"],
         "submit_to_lab": 0
       },
       "Typhoid Fever": {
