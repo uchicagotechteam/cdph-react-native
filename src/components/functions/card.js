@@ -49,12 +49,11 @@ export default class Card extends React.Component{
 
 const cardStyles = StyleSheet.create({
     textStyle: {
-        marginLeft: 14,
-        marginRight: 14,
-        marginBottom: 19,
-        marginTop: 19,
+        paddingLeft: 14,
+        paddingRight: 14,
+        paddingBottom: 19,
+        paddingTop: 19,
         fontSize: 13,
-        // fontFamily: 'Gotham Bold'
     },
 
     generalbox: {
