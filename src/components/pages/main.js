@@ -90,7 +90,9 @@ export default class Main extends React.Component{
                         heading={q["heading"]}
                         info={q["info"]}
                         open={false}
-
+                        style = {dropDownStyles}
+                        iconcolor = {"#FFFFFF"}
+                        iconsize = {20}
                         />)
 
     
@@ -162,5 +164,39 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         top: 240,
         marginBottom: 255
+    }
+});
+
+
+const dropDownStyles = StyleSheet.create({ // styles specific to only the drop downs
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingTop: 15,
+    },
+    touchable: {
+        color: '#ffffff',
+        backgroundColor: '#002f86',
+        marginTop: 10,
+        width: 300,
+        paddingLeft: 10,
+    },
+    buttonInfo: {
+        color: '#ffffff',
+        width: '85%',
+        paddingLeft: 10,
+        paddingTop: 10,
+        paddingBottom: 15
+    },
+    buttonTitle: {
+        paddingTop: 5,
+        color: '#ffffff',
+        paddingLeft: 10,
+        width: '85%',
+        fontWeight: 'bold',
+        fontSize: 15,
+    },
+    arrowButton: {
+        paddingRight: 15
     }
 });
