@@ -18,6 +18,7 @@ export default class App extends Component<Props> {
         };
     }
 
+    //function to allow us to reset the page to its default after visiting a disease page
     changeReset(current){
         this.setState({
             Current: current,

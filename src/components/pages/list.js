@@ -14,6 +14,7 @@ export default class List extends React.Component {
 
     }
 
+    //function to update the state so that the page resets to its default after viewing a disease page
     componentDidUpdate(prevProps, prevState, snapshot){
         if (prevProps.reset != this.props.reset){
             this.setState({

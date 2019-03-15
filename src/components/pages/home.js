@@ -13,6 +13,7 @@ export default class Home extends React.Component {
         }
     }
 
+    //function to update the state so that the page resets to its default after viewing a disease page
     componentDidUpdate(prevProps, prevState, snapshot){
         if (prevProps.reset != this.props.reset){
             this.setState({
@@ -36,7 +37,7 @@ export default class Home extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-                {(this.state.active == 'main' || this.state.reset == true) ?
+                {this.state.active == 'main' ?
                     <View style={styles.container}>
                         <Image source={require('../../assets/NEWmedreportbackground.png')} style={styles.image}/>
                         <Main switch={this.switchPage.bind(this)}/>
