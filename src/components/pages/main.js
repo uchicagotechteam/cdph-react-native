@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import Card from '../functions/card';
 import DropButton from '../functions/drop-down';

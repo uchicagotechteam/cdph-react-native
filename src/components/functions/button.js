@@ -2,7 +2,7 @@ import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import {Linking} from 'react-native'
-import {Icon} from 'react-native-vector-icons/FontAwesome';
+
 
 //takes in three props, callNumber, urgency, and subtitle
 export default class CallButton extends React.Component {
@@ -47,10 +47,6 @@ export default class CallButton extends React.Component {
                     style={this.chooseStyle(this.props.urgency)}
                     onPress={() => this.callNumber(this.props.callNumber)}
                 >
-                    {/*<Icon*/}
-                    {/*name='phone'*/}
-                    {/*color='white'*/}
-                    {/*/>*/}
                     <Text style={styles.text}>
                         Call to notify
                     </Text>

@@ -52,9 +52,10 @@ export default class DetailContents extends React.Component{
                 <CallButton callNumber = {getNumber(this.state.name)} subtitle = {"If unavailable, call (312) 746-5377"}  urgency={"3 hours"}/>
                 {lineAndSubtitle}
                 <Text style = {styles.info}>Information:</Text>
-                <Text style = {styles.step3}>After Hours</Text>
                 <Text style = {styles.step3}>Does HIPAA allow this?</Text>
-                <Text style = {styles.step3}>Communicable Disease Fax</Text>
+                <Text style = {styles.step3}>
+                    The Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule is the first federal protection for the privacy of Protected Health Information (PHI). PHI, such as the patient’s medical issues, physical and mental conditions, and medications they take, is considered confidential. Normally, you cannot relay any PHI to anyone without consent. However, because of Section 164.512 under HIPAA, confidentiality must be broken for mandatory reporting.
+                </Text>
 
 
 

@@ -6,7 +6,7 @@ Usage:
 */
 
 import React from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign'
 
 export default class BackTopBar extends React.Component{

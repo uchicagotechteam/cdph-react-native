@@ -13,14 +13,6 @@ import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
 export default class Heading extends React.Component{
-    /*constructor(props) {
-        super(props)
-        this.state = {
-            headingText: this.props.heading,
-            subheadingText: this.props.subheading,
-        };
-    }
-    */
 
     render() {
         return(

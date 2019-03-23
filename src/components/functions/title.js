@@ -10,7 +10,7 @@
  */
 
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 export default class Title extends React.Component{
 

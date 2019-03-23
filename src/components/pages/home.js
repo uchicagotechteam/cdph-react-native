@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View, Image, Button} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 
 import Main from './main';
 import DetailContents from '../functions/detailContents.js';
@@ -22,7 +22,6 @@ export default class Home extends React.Component {
             })
         }
     }
-
 
 
     switchPage(update, disease){

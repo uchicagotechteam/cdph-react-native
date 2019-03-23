@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import TopBarNav from 'top-bar-nav';
 import Card from './card.js';
 

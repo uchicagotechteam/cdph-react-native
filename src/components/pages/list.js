@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {View} from 'react-native';
 import TopNav from "../functions/section";
 import DetailContents from '../functions/detailContents.js';
 

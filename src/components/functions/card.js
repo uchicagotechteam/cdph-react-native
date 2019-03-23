@@ -10,7 +10,7 @@ Note: There is a margin above the component, but not below.
  */
 
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 export default class Card extends React.Component{
 

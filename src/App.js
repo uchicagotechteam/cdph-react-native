@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import SimpleLineIcons from 'react-native-vector-icons/MaterialIcons';
 import Home from './components/pages/home.js';
 import List from './components/pages/list.js';
-import DetailContents from './components/functions/detailContents'
 import {BottomNavigation} from "react-native-material-ui";
-import { COLOR, ThemeProvider } from "react-native-material-ui";
+import { ThemeProvider } from "react-native-material-ui";
 
-var jsonData = require('./assets/data.json');
 
 export default class App extends Component<Props> {
     constructor(props) {
