@@ -3,7 +3,6 @@
 
 ![Home Screen](screenshots/homepage.png)
 
-
 ### Prerequisites
 
 `git clone https://github.com/JiaqiGao/cdph-react-native/`
