@@ -7,7 +7,7 @@
 
 ![screenshot](screenshots/screenshots.png)
 
-## SETUP
+## Setup
 
 `git clone https://github.com/JiaqiGao/cdph-react-native/`
 
@@ -29,13 +29,13 @@ If you get a bundle error, do
 `react-native upgrade` and opt to keep your current .gitignore but replace the xproj
 
 
-## CUSTOMIZE
+## Customize
 
 Edit the app from the src folder, adding any necessary components and pages. Disease information powering the app is pulled from `src/assets/data.json`. Please maintain the structure of the json file when adding new diseases or removing previous ones.
 
 ---
 
-## CONTRIBUTORS
+## Contributors
 
-This project was created through Institute of Politics <a href="https://www.uchicagotechteam.com/">Tech Team</a> at The University of Chicago for the Chicago Department of Public Health. Project management and technical development was led by Jiaqi Gao. User interface design was led by Yena Kim.
+This project was created through Institute of Politics <a href="https://www.uchicagotechteam.com/">Tech Team</a> at The University of Chicago for the Chicago Department of Public Health. Project management and technical development was led by Jiaqi Gao. User interface design was managed by Yena Kim.
 
