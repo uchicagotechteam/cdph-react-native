@@ -1,9 +1,7 @@
 # CDPH Reporting App
 > A Health Reporting App for the Chicago Department of Public Health (CDPH).
 
-<img src="screenshots/homepage.png" height="100">
-<img src="screenshots/disease_profile.png" height="100">
-<img src="screenshots/screen1.png" height="100">
+![](/screenshots/screenshot.png)
 
 ### Prerequisites
 
