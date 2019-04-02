@@ -1,6 +1,9 @@
 # CDPH Reporting App
 > A Health Reporting App for the Chicago Department of Public Health (CDPH).
 
+![Home Screen](screenshots/homepage.png)
+
+
 ### Prerequisites
 
 `git clone https://github.com/JiaqiGao/cdph-react-native/`
