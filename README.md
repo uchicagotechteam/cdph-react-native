@@ -28,13 +28,13 @@ Run the app in an iOS simulator with
 If you get a bundle error, do
 `react-native upgrade` and opt to keep your current .gitignore but replace the xproj
 
---
+---
 
 ## CUSTOMIZE
 
 Edit the app from the src folder, adding any necessary components and pages. Disease information powering the app is pulled from `src/assets/data.json`. Please maintain the structure of the json file when adding new diseases or removing previous ones.
 
---
+---
 
 ## CONTRIBUTORS
 
