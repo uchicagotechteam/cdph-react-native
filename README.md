@@ -11,13 +11,7 @@
 
 `git clone https://github.com/JiaqiGao/cdph-react-native/`
 
-We recommend to use yarn for better management of dependency versioning.
-
-`brew install yarn`
-
-`yarn install`
-
-Otherwise you can also use npm to install packages.
+Install packages.
 
 `npm install`
 
