@@ -10,31 +10,30 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default class Title extends React.Component{
-
-    render() {
-        return(
-            <View style={styles.container}>
-                <Text style={styles.headingStyle}>{this.props.heading}</Text>
-            </View>
-        )
-    }
+export default class Title extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.headingStyle}>{this.props.heading}</Text>
+      </View>
+    );
+  }
 }
 
 
 const styles = StyleSheet.create({
-    headingStyle: {
-        marginTop: 33,
-        marginRight: 34,
-        fontSize: 18,
-        fontFamily: 'Arial',
-        textAlign: 'left',
-        fontWeight: 'bold'
-    },
-    container: {
-        borderBottomColor: 'red',
-        borderBottomWidth: 2,
-    }
-})
+  headingStyle: {
+    marginTop: 33,
+    marginRight: 34,
+    fontSize: 18,
+    fontFamily: 'Arial',
+    textAlign: 'left',
+    fontWeight: 'bold',
+  },
+  container: {
+    borderBottomColor: 'red',
+    borderBottomWidth: 2,
+  },
+});

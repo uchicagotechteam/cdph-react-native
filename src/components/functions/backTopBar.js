@@ -6,65 +6,64 @@ Usage:
 */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign'
+import { StyleSheet, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
-export default class BackTopBar extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            goBack: false,
-        };
+export default class BackTopBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      goBack: false,
+    };
+  }
+
+  switchPage(back) {
+    if (back) {
+      this.props.switch(back, '');
     }
+  }
 
-    switchPage(back){
-        if (back){
-            this.props.switch(back, '');
-        }
-    }
-
-    /* take in a color
+  /* take in a color
     create a function, onclick: state change goback = true
                                 function that kills itself, stops displaying itself
 
 
     function handler - this.props.handler, changes parent state, decide to show detail contents or home screen
     */
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style = {styles.backButton}>
-                    <Icon name="left" color="#FFFFFF" size = {24} onPress={this.switchPage.bind(this, this.props.back)} />
-                </View>
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.backButton}>
+          <Icon name="left" color="#FFFFFF" size={24} onPress={this.switchPage.bind(this, this.props.back)} />
+        </View>
 
-                <Text style = {styles.title}>DISEASE INFO</Text>
+        <Text style={styles.title}>DISEASE INFO</Text>
 
-            </View>
+      </View>
 
-        );
-    }
-
+    );
+  }
 }
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'row',
-        height: 73,
-        alignItems: 'center',
-        backgroundColor: '#1EB1ED'
-    },
-    backButton: {
-        marginLeft: 12,
-        marginTop: 38,
-    },
-    title: {
-        marginLeft: 100,
-        color: '#FFFFFF',
-        fontFamily: 'Arial',
-        fontWeight: 'bold',
-        marginTop: 38,
-        fontSize: 13,
-    }
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    height: 73,
+    alignItems: 'center',
+    backgroundColor: '#1EB1ED',
+  },
+  backButton: {
+    marginLeft: 12,
+    marginTop: 38,
+  },
+  title: {
+    marginLeft: 100,
+    color: '#FFFFFF',
+    fontFamily: 'Arial',
+    fontWeight: 'bold',
+    marginTop: 38,
+    fontSize: 13,
+  },
 });
