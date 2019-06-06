@@ -6,9 +6,11 @@
  *
  * @typechecks
  */
+
 'use strict';
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
+
 /**
  * Executes the provided `callback` once for each enumerable own property in the
  * object. The `callback` is invoked with three arguments:
@@ -27,7 +29,6 @@ var hasOwnProperty = Object.prototype.hasOwnProperty;
  * @param {function} callback
  * @param {*} context
  */
-
 function forEachObject(object, callback, context) {
   for (var name in object) {
     if (hasOwnProperty.call(object, name)) {

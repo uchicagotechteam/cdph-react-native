@@ -37,38 +37,35 @@
  * Unicode Standard Annex #9 (UAX9)
  * http://www.unicode.org/reports/tr9/
  */
+
 'use strict';
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var UnicodeBidi = require("./UnicodeBidi");
+var UnicodeBidi = require('./UnicodeBidi');
+var UnicodeBidiDirection = require('./UnicodeBidiDirection');
 
-var UnicodeBidiDirection = require("./UnicodeBidiDirection");
+var invariant = require('./invariant');
 
-var invariant = require("./invariant");
+var UnicodeBidiService = function () {
 
-var UnicodeBidiService =
-/*#__PURE__*/
-function () {
   /**
    * Stateful class for paragraph direction detection
    *
    * @param defaultDir  Default direction of the service
    */
   function UnicodeBidiService(defaultDir) {
-    _defineProperty(this, "_defaultDir", void 0);
-
-    _defineProperty(this, "_lastDir", void 0);
+    _classCallCheck(this, UnicodeBidiService);
 
     if (!defaultDir) {
       defaultDir = UnicodeBidiDirection.getGlobalDir();
     } else {
-      !UnicodeBidiDirection.isStrong(defaultDir) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Default direction must be a strong direction (LTR or RTL)') : invariant(false) : void 0;
+      !UnicodeBidiDirection.isStrong(defaultDir) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Default direction must be a strong direction (LTR or RTL)') : invariant(false) : void 0;
     }
-
     this._defaultDir = defaultDir;
     this.reset();
   }
+
   /**
    * Reset the internal state
    *
@@ -77,11 +74,10 @@ function () {
    */
 
 
-  var _proto = UnicodeBidiService.prototype;
-
-  _proto.reset = function reset() {
+  UnicodeBidiService.prototype.reset = function reset() {
     this._lastDir = this._defaultDir;
   };
+
   /**
    * Returns the direction of a block of text, and remembers it as the
    * fall-back direction for the next paragraph.
@@ -91,7 +87,7 @@ function () {
    */
 
 
-  _proto.getDirection = function getDirection(str) {
+  UnicodeBidiService.prototype.getDirection = function getDirection(str) {
     this._lastDir = UnicodeBidi.getDirection(str, this._lastDir);
     return this._lastDir;
   };

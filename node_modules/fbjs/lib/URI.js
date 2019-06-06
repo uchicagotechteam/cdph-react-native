@@ -6,22 +6,19 @@
  *
  * 
  */
+
 'use strict';
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var URI =
-/*#__PURE__*/
-function () {
+var URI = function () {
   function URI(uri) {
-    _defineProperty(this, "_uri", void 0);
+    _classCallCheck(this, URI);
 
     this._uri = uri;
   }
 
-  var _proto = URI.prototype;
-
-  _proto.toString = function toString() {
+  URI.prototype.toString = function toString() {
     return this._uri;
   };
 

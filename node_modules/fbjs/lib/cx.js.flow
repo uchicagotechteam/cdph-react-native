@@ -26,7 +26,6 @@ function cx(classNames) {
   if (typeof classNames == 'object') {
     return Object.keys(classNames).filter(className => classNames[className]).map(replace).join(' ');
   }
-
   return Array.prototype.map.call(arguments, replace).join(' ');
 }
 

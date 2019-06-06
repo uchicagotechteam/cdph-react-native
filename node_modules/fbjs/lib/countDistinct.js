@@ -6,18 +6,19 @@
  *
  * 
  */
+
 'use strict';
 
-var Set = require("./Set");
+var Set = require('./Set');
 
-var emptyFunction = require("./emptyFunction");
+var emptyFunction = require('./emptyFunction');
+
 /**
  * Returns the count of distinct elements selected from an array.
  */
-
-
 function countDistinct(iter, selector) {
   selector = selector || emptyFunction.thatReturnsArgument;
+
   var set = new Set();
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
@@ -26,6 +27,7 @@ function countDistinct(iter, selector) {
   try {
     for (var _iterator = iter[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var val = _step.value;
+
       set.add(selector(val));
     }
   } catch (err) {
@@ -33,8 +35,8 @@ function countDistinct(iter, selector) {
     _iteratorError = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-        _iterator["return"]();
+      if (!_iteratorNormalCompletion && _iterator['return']) {
+        _iterator['return']();
       }
     } finally {
       if (_didIteratorError) {

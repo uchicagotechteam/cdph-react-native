@@ -2,7 +2,7 @@
 
 var Promise = require("./Promise");
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -23,19 +23,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * reject methods, you should export `getPromise` which returns a Promise with
  * the same semantics excluding those methods.
  */
-var Deferred =
-/*#__PURE__*/
-function () {
+var Deferred = function () {
   function Deferred() {
     var _this = this;
 
-    _defineProperty(this, "_settled", void 0);
-
-    _defineProperty(this, "_promise", void 0);
-
-    _defineProperty(this, "_resolve", void 0);
-
-    _defineProperty(this, "_reject", void 0);
+    _classCallCheck(this, Deferred);
 
     this._settled = false;
     this._promise = new Promise(function (resolve, reject) {
@@ -44,33 +36,29 @@ function () {
     });
   }
 
-  var _proto = Deferred.prototype;
-
-  _proto.getPromise = function getPromise() {
+  Deferred.prototype.getPromise = function getPromise() {
     return this._promise;
   };
 
-  _proto.resolve = function resolve(value) {
+  Deferred.prototype.resolve = function resolve(value) {
     this._settled = true;
-
     this._resolve(value);
   };
 
-  _proto.reject = function reject(reason) {
+  Deferred.prototype.reject = function reject(reason) {
     this._settled = true;
-
     this._reject(reason);
   };
 
-  _proto["catch"] = function _catch(onReject) {
+  Deferred.prototype["catch"] = function _catch(onReject) {
     return Promise.prototype["catch"].apply(this._promise, arguments);
   };
 
-  _proto.then = function then(onFulfill, onReject) {
+  Deferred.prototype.then = function then(onFulfill, onReject) {
     return Promise.prototype.then.apply(this._promise, arguments);
   };
 
-  _proto.done = function done(onFulfill, onReject) {
+  Deferred.prototype.done = function done(onFulfill, onReject) {
     // Embed the polyfill for the non-standard Promise.prototype.done so that
     // users of the open source fbjs don't need a custom lib for Promise
     var promise = arguments.length ? this._promise.then.apply(this._promise, arguments) : this._promise;
@@ -81,7 +69,7 @@ function () {
     });
   };
 
-  _proto.isSettled = function isSettled() {
+  Deferred.prototype.isSettled = function isSettled() {
     return this._settled;
   };
 

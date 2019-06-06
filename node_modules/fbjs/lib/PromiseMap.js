@@ -6,44 +6,41 @@
  *
  * 
  */
+
 'use strict';
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Deferred = require("./Deferred");
+var Deferred = require('./Deferred');
 
-var invariant = require("./invariant");
+var invariant = require('./invariant');
+
 /**
  * A map of asynchronous values that can be get or set in any order. Unlike a
  * normal map, setting the value for a particular key more than once throws.
  * Also unlike a normal map, a key can either be resolved or rejected.
  */
 
-
-var PromiseMap =
-/*#__PURE__*/
-function () {
+var PromiseMap = function () {
   function PromiseMap() {
-    _defineProperty(this, "_deferred", void 0);
+    _classCallCheck(this, PromiseMap);
 
     this._deferred = {};
   }
 
-  var _proto = PromiseMap.prototype;
-
-  _proto.get = function get(key) {
+  PromiseMap.prototype.get = function get(key) {
     return getDeferred(this._deferred, key).getPromise();
   };
 
-  _proto.resolveKey = function resolveKey(key, value) {
+  PromiseMap.prototype.resolveKey = function resolveKey(key, value) {
     var entry = getDeferred(this._deferred, key);
-    !!entry.isSettled() ? process.env.NODE_ENV !== "production" ? invariant(false, 'PromiseMap: Already settled `%s`.', key) : invariant(false) : void 0;
+    !!entry.isSettled() ? process.env.NODE_ENV !== 'production' ? invariant(false, 'PromiseMap: Already settled `%s`.', key) : invariant(false) : void 0;
     entry.resolve(value);
   };
 
-  _proto.rejectKey = function rejectKey(key, reason) {
+  PromiseMap.prototype.rejectKey = function rejectKey(key, reason) {
     var entry = getDeferred(this._deferred, key);
-    !!entry.isSettled() ? process.env.NODE_ENV !== "production" ? invariant(false, 'PromiseMap: Already settled `%s`.', key) : invariant(false) : void 0;
+    !!entry.isSettled() ? process.env.NODE_ENV !== 'production' ? invariant(false, 'PromiseMap: Already settled `%s`.', key) : invariant(false) : void 0;
     entry.reject(reason);
   };
 
@@ -54,7 +51,6 @@ function getDeferred(entries, key) {
   if (!entries.hasOwnProperty(key)) {
     entries[key] = new Deferred();
   }
-
   return entries[key];
 }
 

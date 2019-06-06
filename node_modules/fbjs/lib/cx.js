@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -29,7 +29,6 @@ function cx(classNames) {
       return classNames[className];
     }).map(replace).join(' ');
   }
-
   return Array.prototype.map.call(arguments, replace).join(' ');
 }
 

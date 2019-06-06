@@ -6,7 +6,9 @@
  *
  * @providesModule focusNode
  */
+
 'use strict';
+
 /**
  * @param {DOMElement} node input/textarea to focus
  */

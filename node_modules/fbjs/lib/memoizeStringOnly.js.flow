@@ -8,7 +8,9 @@
  * @flow
  * @typechecks static-only
  */
+
 'use strict';
+
 /**
  * Memoizes the return value of a function that accepts one string argument.
  */
@@ -19,7 +21,6 @@ function memoizeStringOnly<T>(callback: (s: string) => T): (s: string) => T {
     if (!cache.hasOwnProperty(string)) {
       cache[string] = callback.call(this, string);
     }
-
     return cache[string];
   };
 }

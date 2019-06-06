@@ -7,9 +7,11 @@
  * 
  * @typechecks
  */
+
 'use strict';
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
+
 /**
  * Executes the provided `callback` once for each enumerable own property in the
  * object until it finds one where callback returns a falsy value. If such a
@@ -28,7 +30,6 @@ var hasOwnProperty = Object.prototype.hasOwnProperty;
  * visits them. Properties that are deleted before being visited are not
  * visited.
  */
-
 function everyObject(object, callback, context) {
   for (var name in object) {
     if (hasOwnProperty.call(object, name)) {
@@ -37,7 +38,6 @@ function everyObject(object, callback, context) {
       }
     }
   }
-
   return true;
 }
 

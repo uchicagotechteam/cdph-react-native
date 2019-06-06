@@ -7,6 +7,7 @@
  * 
  * @typechecks
  */
+
 'use strict';
 
 /**
@@ -16,17 +17,13 @@
 function someSet(set, callback, context) {
   var iterator = set.entries();
   var current = iterator.next();
-
   while (!current.done) {
     var entry = current.value;
-
     if (callback.call(context, entry[1], entry[0], set)) {
       return true;
     }
-
     current = iterator.next();
   }
-
   return false;
 }
 

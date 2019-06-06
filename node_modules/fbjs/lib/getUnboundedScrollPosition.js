@@ -6,7 +6,9 @@
  *
  * @typechecks
  */
+
 'use strict';
+
 /**
  * Gets the scroll position of the supplied element or window.
  *
@@ -25,7 +27,6 @@ function getUnboundedScrollPosition(scrollable) {
       y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
     };
   }
-
   return {
     x: scrollable.scrollLeft,
     y: scrollable.scrollTop

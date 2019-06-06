@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -8,7 +8,9 @@
  *
  * @typechecks
  */
+
 var _uppercasePattern = /([A-Z])/g;
+
 /**
  * Hyphenates a camelcased string, for example:
  *
@@ -21,7 +23,6 @@ var _uppercasePattern = /([A-Z])/g;
  * @param {string} string
  * @return {string}
  */
-
 function hyphenate(string) {
   return string.replace(_uppercasePattern, '-$1').toLowerCase();
 }

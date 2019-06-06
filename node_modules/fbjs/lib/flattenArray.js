@@ -35,7 +35,6 @@ function flatten(array, result) {
 
   while (length--) {
     var current = array[ii++];
-
     if (Array.isArray(current)) {
       flatten(current, result);
     } else {

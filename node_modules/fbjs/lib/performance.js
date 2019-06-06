@@ -6,9 +6,10 @@
  *
  * @typechecks
  */
+
 'use strict';
 
-var ExecutionEnvironment = require("./ExecutionEnvironment");
+var ExecutionEnvironment = require('./ExecutionEnvironment');
 
 var performance;
 

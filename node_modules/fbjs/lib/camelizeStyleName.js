@@ -6,11 +6,13 @@
  *
  * @typechecks
  */
+
 'use strict';
 
-var camelize = require("./camelize");
+var camelize = require('./camelize');
 
 var msPattern = /^-ms-/;
+
 /**
  * Camelcases a hyphenated CSS property name, for example:
  *
@@ -28,7 +30,6 @@ var msPattern = /^-ms-/;
  * @param {string} string
  * @return {string}
  */
-
 function camelizeStyleName(string) {
   return camelize(string.replace(msPattern, 'ms-'));
 }

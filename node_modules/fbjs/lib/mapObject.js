@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
+
 'use strict';
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
+
 /**
  * Executes the provided `callback` once for each enumerable own property in the
  * object and constructs a new object from the results. The `callback` is
@@ -30,20 +32,16 @@ var hasOwnProperty = Object.prototype.hasOwnProperty;
  * @param {*} context
  * @return {?object}
  */
-
 function mapObject(object, callback, context) {
   if (!object) {
     return null;
   }
-
   var result = {};
-
   for (var name in object) {
     if (hasOwnProperty.call(object, name)) {
       result[name] = callback.call(context, object[name], name, object);
     }
   }
-
   return result;
 }
 

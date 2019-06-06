@@ -8,14 +8,13 @@
  *
  * 
  */
+
 function crc32(str) {
   /* jslint bitwise: true */
   var crc = -1;
-
   for (var i = 0, len = str.length; i < len; i++) {
     crc = crc >>> 8 ^ table[(crc ^ str.charCodeAt(i)) & 0xFF];
   }
-
   return ~crc;
 }
 

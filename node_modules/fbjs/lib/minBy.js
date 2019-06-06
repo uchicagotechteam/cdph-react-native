@@ -8,17 +8,18 @@
  *
  * 
  */
+
 var compareNumber = function compareNumber(a, b) {
   return a - b;
 };
+
 /**
  * Returns the minimum element as measured by a scoring function f. Returns the
  * first such element if there are ties.
  */
-
-
 function minBy(as, f, compare) {
   compare = compare || compareNumber;
+
   var minA = undefined;
   var minB = undefined;
   var seenFirst = false;
@@ -29,8 +30,8 @@ function minBy(as, f, compare) {
   try {
     for (var _iterator = as[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var a = _step.value;
-      var b = f(a);
 
+      var b = f(a);
       if (!seenFirst || compare(b, minB) < 0) {
         minA = a;
         minB = b;
@@ -42,7 +43,7 @@ function minBy(as, f, compare) {
     _iteratorError = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+      if (!_iteratorNormalCompletion && _iterator["return"]) {
         _iterator["return"]();
       }
     } finally {

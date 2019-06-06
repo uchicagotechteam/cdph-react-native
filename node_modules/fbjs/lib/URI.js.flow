@@ -7,6 +7,7 @@
  * @providesModule URI
  * @flow
  */
+
 'use strict';
 
 class URI {
@@ -19,7 +20,6 @@ class URI {
   toString(): string {
     return this._uri;
   }
-
 }
 
 module.exports = URI;

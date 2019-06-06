@@ -9,6 +9,7 @@
  */
 
 /* jslint unused:false */
+
 if (global.ErrorUtils) {
   module.exports = global.ErrorUtils;
 } else {
@@ -20,5 +21,6 @@ if (global.ErrorUtils) {
       return callback;
     }
   };
+
   module.exports = ErrorUtils;
 }

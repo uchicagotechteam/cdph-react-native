@@ -38,13 +38,11 @@ class Deferred<Tvalue, Treason> {
 
   resolve(value: Tvalue): void {
     this._settled = true;
-
     this._resolve(value);
   }
 
   reject(reason: Treason): void {
     this._settled = true;
-
     this._reject(reason);
   }
 
@@ -70,7 +68,6 @@ class Deferred<Tvalue, Treason> {
   isSettled(): boolean {
     return this._settled;
   }
-
 }
 
 module.exports = Deferred;

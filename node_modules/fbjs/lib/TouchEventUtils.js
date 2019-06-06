@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
+
 var TouchEventUtils = {
   /**
    * Utility function for common case of extracting out the primary touch from a
@@ -23,7 +24,9 @@ var TouchEventUtils = {
     var changedTouches = nativeEvent.changedTouches;
     var hasTouches = touches && touches.length > 0;
     var hasChangedTouches = changedTouches && changedTouches.length > 0;
+
     return !hasTouches && hasChangedTouches ? changedTouches[0] : hasTouches ? touches[0] : nativeEvent;
   }
 };
+
 module.exports = TouchEventUtils;

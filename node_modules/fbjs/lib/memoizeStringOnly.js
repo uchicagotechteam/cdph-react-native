@@ -7,7 +7,9 @@
  * 
  * @typechecks static-only
  */
+
 'use strict';
+
 /**
  * Memoizes the return value of a function that accepts one string argument.
  */
@@ -18,7 +20,6 @@ function memoizeStringOnly(callback) {
     if (!cache.hasOwnProperty(string)) {
       cache[string] = callback.call(this, string);
     }
-
     return cache[string];
   };
 }

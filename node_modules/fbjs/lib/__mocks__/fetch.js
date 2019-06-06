@@ -6,14 +6,21 @@
  *
  * @noflow
  */
+
 'use strict';
 
-var Deferred = require.requireActual("../Deferred");
+var Deferred = require.requireActual('../Deferred');
 
-var fetch = jest.fn(function (uri, options) {
+function fetch(uri, options) {
   var deferred = new Deferred();
+  fetch.mock.calls.push([uri, options]);
   fetch.mock.deferreds.push(deferred);
   return deferred.getPromise();
-});
-fetch.mock.deferreds = [];
+}
+
+fetch.mock = {
+  calls: [],
+  deferreds: []
+};
+
 module.exports = fetch;

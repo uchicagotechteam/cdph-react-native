@@ -10,11 +10,12 @@ var Promise = require("./Promise");
  *
  * 
  */
+
 var resolvedPromise = Promise.resolve();
+
 /**
  * An alternative to setImmediate based on Promise.
  */
-
 function resolveImmediate(callback) {
   resolvedPromise.then(callback)["catch"](throwNext);
 }

@@ -6,14 +6,15 @@
  *
  * @noflow
  */
+
 'use strict';
 
-var Deferred = require.requireActual("../Deferred");
+var Deferred = require.requireActual('../Deferred');
 
 function fetchWithRetries() {
   var deferred = new Deferred();
 
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
     args[_key] = arguments[_key];
   }
 
@@ -26,4 +27,5 @@ fetchWithRetries.mock = {
   calls: [],
   deferreds: []
 };
+
 module.exports = fetchWithRetries;

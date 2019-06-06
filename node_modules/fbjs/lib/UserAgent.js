@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
+
 'use strict';
 
-var UserAgentData = require("./UserAgentData");
+var UserAgentData = require('./UserAgentData');
+var VersionRange = require('./VersionRange');
 
-var VersionRange = require("./VersionRange");
+var mapObject = require('./mapObject');
+var memoizeStringOnly = require('./memoizeStringOnly');
 
-var mapObject = require("./mapObject");
-
-var memoizeStringOnly = require("./memoizeStringOnly");
 /**
  * Checks to see whether `name` and `version` satisfy `query`.
  *
@@ -23,22 +23,19 @@ var memoizeStringOnly = require("./memoizeStringOnly");
  * @param {?function} normalizer Optional pre-processor for range expression
  * @return {boolean}
  */
-
-
 function compare(name, version, query, normalizer) {
   // check for exact match with no version
   if (name === query) {
     return true;
-  } // check for non-matching names
+  }
 
-
+  // check for non-matching names
   if (!query.startsWith(name)) {
     return false;
-  } // full comparison with version
+  }
 
-
+  // full comparison with version
   var range = query.slice(name.length);
-
   if (version) {
     range = normalizer ? normalizer(range) : range;
     return VersionRange.contains(range, version);
@@ -46,6 +43,7 @@ function compare(name, version, query, normalizer) {
 
   return false;
 }
+
 /**
  * Normalizes `version` by stripping any "NT" prefix, but only on the Windows
  * platform.
@@ -55,8 +53,6 @@ function compare(name, version, query, normalizer) {
  * @param {string} version
  * @return {string}
  */
-
-
 function normalizePlatformVersion(version) {
   if (UserAgentData.platformName === 'Windows') {
     return version.replace(/^\s*NT/, '');
@@ -64,12 +60,11 @@ function normalizePlatformVersion(version) {
 
   return version;
 }
+
 /**
  * Provides client-side access to the authoritative PHP-generated User Agent
  * information supplied by the server.
  */
-
-
 var UserAgent = {
   /**
    * Check if the User Agent browser matches `query`.
@@ -118,6 +113,7 @@ var UserAgent = {
     return compare(UserAgentData.browserName, UserAgentData.browserFullVersion, query);
   },
 
+
   /**
    * Check if the User Agent browser uses a 32 or 64 bit architecture.
    *
@@ -129,6 +125,7 @@ var UserAgent = {
   isBrowserArchitecture: function isBrowserArchitecture(query) {
     return compare(UserAgentData.browserArchitecture, null, query);
   },
+
 
   /**
    * Check if the User Agent device matches `query`.
@@ -158,6 +155,7 @@ var UserAgent = {
     return compare(UserAgentData.deviceName, null, query);
   },
 
+
   /**
    * Check if the User Agent rendering engine matches `query`.
    *
@@ -183,6 +181,7 @@ var UserAgent = {
   isEngine: function isEngine(query) {
     return compare(UserAgentData.engineName, UserAgentData.engineVersion, query);
   },
+
 
   /**
    * Check if the User Agent platform matches `query`.
@@ -223,6 +222,7 @@ var UserAgent = {
     return compare(UserAgentData.platformName, UserAgentData.platformFullVersion, query, normalizePlatformVersion);
   },
 
+
   /**
    * Check if the User Agent platform is a 32 or 64 bit architecture.
    *
@@ -235,4 +235,5 @@ var UserAgent = {
     return compare(UserAgentData.platformArchitecture, null, query);
   }
 };
+
 module.exports = mapObject(UserAgent, memoizeStringOnly);

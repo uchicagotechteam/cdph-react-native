@@ -7,9 +7,11 @@
  *  weak
  * @typechecks
  */
+
 'use strict';
 
-var invariant = require("./invariant");
+var invariant = require('./invariant');
+
 /**
  * Constructs an enumeration with keys equal to their value. If the value is an
  * object, the method is run recursively, including the parent key as a suffix.
@@ -26,22 +28,17 @@ var invariant = require("./invariant");
  *   var CONSTANTS = keyMirror({FOO: {BAR: null}}, 'NameSpace');
  *   console.log(CONSTANTS.FOO.BAR); // NameSpace.FOO.BAR
  */
-
-
 function keyMirrorRecursive(obj, prefix) {
   return keyMirrorRecursiveInternal(obj, prefix);
 }
 
 function keyMirrorRecursiveInternal(
-/*object*/
-obj,
-/*?string*/
-prefix)
-/*object*/
-{
+/*object*/obj,
+/*?string*/prefix) /*object*/{
   var ret = {};
   var key;
-  !isObject(obj) ? process.env.NODE_ENV !== "production" ? invariant(false, 'keyMirrorRecursive(...): Argument must be an object.') : invariant(false) : void 0;
+
+  !isObject(obj) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'keyMirrorRecursive(...): Argument must be an object.') : invariant(false) : void 0;
 
   for (key in obj) {
     if (!obj.hasOwnProperty(key)) {
@@ -49,6 +46,7 @@ prefix)
     }
 
     var val = obj[key];
+
     var newPrefix = prefix ? prefix + '.' + key : key;
 
     if (isObject(val)) {
@@ -59,13 +57,10 @@ prefix)
 
     ret[key] = val;
   }
-
   return ret;
 }
 
-function isObject(obj)
-/*boolean*/
-{
+function isObject(obj) /*boolean*/{
   return obj instanceof Object && !Array.isArray(obj);
 }
 

@@ -6,11 +6,13 @@
  *
  * @typechecks
  */
+
 'use strict';
 
-var hyphenate = require("./hyphenate");
+var hyphenate = require('./hyphenate');
 
 var msPattern = /^ms-/;
+
 /**
  * Hyphenates a camelcased CSS property name, for example:
  *
@@ -27,7 +29,6 @@ var msPattern = /^ms-/;
  * @param {string} string
  * @return {string}
  */
-
 function hyphenateStyleName(string) {
   return hyphenate(string).replace(msPattern, '-ms-');
 }
