@@ -1,9 +1,6 @@
 import React from 'react';
 import {
-  Platform, StyleSheet, Text, View, 
-, TouchableOpacity , Linking } from 'react-native';
-
-
+  Platform, StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
 
 
 // takes in three props, callNumber, urgency, and subtitle
