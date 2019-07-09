@@ -3,8 +3,6 @@
 # CDPH Reporting App
 > A Health Reporting App for the Chicago Department of Public Health (CDPH)
 
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
-
 ![screenshot](screenshots/screenshots.png)
 
 ## Setup
